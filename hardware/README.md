@@ -6,25 +6,175 @@ Hardware design files for the CM5 Servo Dish Controller.
 
 ```
 hardware/
-├── kicad/   # KiCad project: schematic, PCB layout, libraries
-└── stm32/   # STM32 microcontroller files
+├── kicad/   # KiCad project: schematic (PCB layout not started)
+└── stm32/   # STM32 firmware / CubeMX files (empty so far)
 ```
 
-## KiCad
+## Status
 
-The board design lives in `kicad/`. Open the `.kicad_pro` file with KiCad.
+- **Schematic:** first pass complete. KiCad's electrical rules check reports 0 violations.
+- **PCB:** not started.
+- **Not yet done:** the 48 V to 5 V converter has not been simulated or built, and
+  nothing here has been reviewed by a second person. See [Open items](#open-items).
 
-- **KiCad version:** <!-- TODO -->
-- **Board overview:** <!-- TODO: what the board does, major components (CM5, servo drivers, power, connectors) -->
+Schematic PDF: [kicad/cm5-servo-dish-controller.pdf](kicad/cm5-servo-dish-controller.pdf)
 
-### Libraries
+## Board overview
 
-<!-- TODO: note any project-specific symbol/footprint libraries and where they live -->
+A carrier board for a Raspberry Pi Compute Module 5 (CM5) with an STM32G474RET6 that
+drives the dish's servo motors over CANopen. It is derived from the
+[roboclaw-cm4-dc-dish-controller](https://github.com/jrseti/roboclaw-cm4-dc-dish-controller)
+board. The CM5, Ethernet, GPS, I2C and header circuits are carried over. These parts changed:
 
-### Fabrication
+| Area | RoboClaw CM4 board | This board |
+|---|---|---|
+| Motor control | RoboClaw 2x15A, brushed DC motors | Removed. An STM32G474RET6 is the CANopen master for external servo drives (e.g. DSY-400C) |
+| Motor power | On the board (PGND, 15 A fuse) | None. The drives are wired straight to the 48 V supply |
+| Encoders, limit switches, E-stop | On the board | Removed. They will be separate CANopen nodes (future boards) |
+| Control loop | In the RoboClaw | In the STM32: it commands drive velocity and reads position over CAN |
+| Module to controller link | UART, CM4 to RoboClaw | UART, CM5 to STM32 (same CM pins, GPIO12/13) |
+| Supply | 12.8 V battery | 48 V DC, working range 34–58 V |
+| 5 V rail | eFuse + AP64500 buck | LM5116 controller + two 100 V MOSFETs, 5.09 V at 5 A |
+| Module | CM4 | CM5 |
+| USB | USB 2.0 hub, 2 × USB-A | The CM5's two USB 3.0 ports on a stacked USB 3.0 Type-A connector |
+| USB-C | rpiboot through a mux | rpiboot, wired straight to the CM5 USB 2.0 port |
 
-<!-- TODO: layer count, board thickness, fab house, how to generate Gerbers/drill files, BOM and placement files -->
+### Schematic sheets
+
+| Sheet | File | Contents |
+|---|---|---|
+| Top | `cm5-servo-dish-controller.kicad_sch` | Block diagram, grounding, mounting holes |
+| power-input | `power-input.kicad_sch` | 48 V terminal, fuse, reverse-polarity diode, TVS, bulk capacitor, filter |
+| power_5v | `power_5v.kicad_sch` | 48 V to 5 V buck, on/off switch, design notes |
+| STM32 | `stm32.kicad_sch` | STM32G474RET6, its 3.3 V regulator, crystal, SWD, UART buffers, reset/boot control |
+| STM32 / CAN | `can.kicad_sch` | Isolated CAN transceiver and supply, choke, termination, RJ45 |
+| CM5 | `cm5.kicad_sch` | CM5 module |
+| CM5 / usb | `usb.kicad_sch` | USB 3.0 ports, port power switch, ESD |
+| CM5 / usb / usb2 | `usb2.kicad_sch` | USB-C rpiboot port |
+| CM5 / ethernet | `ethernet.kicad_sch` | Gigabit Ethernet (unchanged) |
+| CM5 / CM5_Connectors | `cm5_connectors.kicad_sch` | GPIO header, boot jumpers, console UART |
+| CM5 / I2C | `i2c.kicad_sch` | Temperature sensor, I2C connector (unchanged) |
+| GPS | `gps.kicad_sch` | GPS receiver and 1PPS (unchanged) |
+
+Each sheet carries notes explaining its part values.
+
+### Power
+
+- **Input:** J1 screw terminal, F1 (5×20 mm fuse, T2A), D30 series Schottky for reverse
+  polarity, D31 SMCJ58A surge clamp, C90 100 µF bulk, FB3 bead.
+- **5 V:** LM5116 synchronous buck at 259 kHz with a 10 µH inductor. Current limit
+  7.3 A peak, input UVLO at 33 V. SW1 shuts the converter down (5 V rail only; the
+  48 V side stays live).
+- **3.3 V:** the CM5 supplies `3V3_CM5` as before. The STM32 has its own regulator
+  (`3V3_MCU`), so it keeps running while the CM5 is off or rebooting.
+
+### STM32 and CAN
+
+- **CAN:** one CANopen bus, galvanically isolated (ISO1042 + B0505S isolated supply).
+  The RJ45 uses the CiA 303-1 pinout, the same as the servo drives' CN1/CN2 ports:
+  pin 1 CAN_H, pin 2 CAN_L, pin 3 CAN_GND. SW2 switches in a 120 Ω split termination.
+- **UART to the CM5:** USART1 through two buffers powered from `3V3_CM5`, so the STM32
+  never drives a pin of an unpowered CM5.
+- **Firmware update from the CM5:** CM5 GPIO23 resets the STM32 and GPIO24 selects its
+  system bootloader, which listens on the same USART1. No SWD probe is needed.
+- **Debug:** STDC14 connector (STLINK-V3) with SWD, SWO and a virtual COM port.
+
+STM32 pin use:
+
+| Pin | Function | Connects to |
+|---|---|---|
+| PA9 / PA10 | USART1 TX / RX | CM5 GPIO13 / GPIO12 |
+| PA12 / PA11 | FDCAN1 TX / RX | ISO1042 |
+| PA13 / PA14 / PB3 | SWDIO / SWCLK / SWO | STDC14 |
+| PA2 / PA3 | USART2 (or LPUART1) TX / RX | STDC14 virtual COM port |
+| PC6 / PC7 | CANopen RUN (green) / ERR (red) LED | LED5 / LED6 |
+| PF0 / PF1 | 24 MHz crystal | X2 |
+| PG10 | NRST | CM5 GPIO23 (through Q7), STDC14 |
+| PB8 | BOOT0 | CM5 GPIO24 |
+
+All other pins are unconnected.
+
+CM5 GPIO changes from the CM4 board: GPIO23 `MCU_RST`, GPIO24 `MCU_BOOT0`, GPIO25
+`USB_nFAULT`. GPIO24/25 were the eFuse fault and power-good inputs.
+
+## Open items
+
+Check these before layout or ordering:
+
+1. **Converter review.** The 48 V to 5 V stage follows the LM5116 datasheet procedure
+   but has not been simulated or bench-tested. The reference board's power stages
+   were simulated; this one should be too.
+2. **5 V tolerance.** Output is 5.09 V nominal, 4.93–5.25 V worst case with the 1 %
+   feedback resistors. The CM5 limit is 5.25 V. Fit 0.1 % resistors for margin.
+3. **Supply over-voltage.** D31 starts to conduct at about 64 V. If the servo drives
+   can pump the 48 V bus above that when braking, D31 overheats and F1 blows. Fit
+   brake resistors on the drives, or choose a higher-voltage TVS and re-check the
+   100 V ratings.
+4. **Fuse.** F1 must be a ceramic 5×20 mm fuse with a DC rating of 60 V or more.
+   Ordinary glass fuses are rated for AC only.
+5. **CM5 module connectors.** J17/J18 are still the Hirose DF40C-100DS-0.4V(51)
+   parts from the CM4 board. The CM5 datasheet names Amphenol 10164227-1001A1RLF
+   as the mating part, tested to the CM5's higher current.
+6. **Self power-cycle circuit** (`nPWR_CYCLE`, U10) is carried over from the CM4
+   board and is not proven on a CM5.
+7. **Console UART notes** on the connectors sheet (how to enable the Linux console
+   on GPIO14/15 on a CM5) need checking against current Raspberry Pi documentation.
+8. **Part stock.** A public JLCPCB parts index (jlcsearch.tscircuit.com) listed
+   stock on 2026-11-16 for every new part except the inductor (C305223) and the
+   USB 3.0 connector (C429838), which it did not list. Check all of them on
+   JLCPCB itself before ordering.
+9. **Net classes** in the project file were updated for the new net names, but the
+   track widths and clearances are still the 12 V board's. Review them for 48 V.
+
+## Libraries
+
+- **Symbols and footprints:** the `MyParts` library in the `parts/` submodule
+  ([jrseti/parts](https://github.com/jrseti/parts)), referenced from the project
+  library tables as `${KIPRJMOD}/../../parts/...`.
+- **IPC-named footprints:** `kicad/myparts-ipc.pretty` (`MyPartsIPC`), copied from
+  the reference project.
+- **3D models:** set the KiCad path variable `MYPARTS` to `<clone>/parts` and
+  `MYPARTS_DATASHEETS` to `<clone>/parts/datasheets`
+  (**Preferences → Configure Paths**).
+
+This design added these symbols to `parts/myparts.kicad_sym`, with footprints and
+3D models where the library had none:
+
+| Symbol | Part | LCSC |
+|---|---|---|
+| `ComputeModule5-CM5` | CM5 (the CM4 symbol with CM5 pin names) | – |
+| `LM5116MHX` | 100 V buck controller | C13755 |
+| `BSC098N10NS5` | 100 V MOSFET | C534398 |
+| `TMPC1265HP-100MG-D` | 10 µH inductor | C305223 |
+| `RLP25FEGR015` | 15 mΩ sense resistor | C459682 |
+| `CL31Y225KCHVPNE` | 2.2 µF 100 V capacitor | C2803390 |
+| `EFVH100ADA101M10C0` | 100 µF 100 V electrolytic | C22387799 |
+| `0402CG331J500NT` | 330 pF C0G capacitor | C190579 |
+| `SS510C` | 100 V Schottky | C123944 |
+| `SMCJ58A` | TVS | C151899 |
+| `BAV21WS_C2903901` | 250 V switching diode | C2903901 |
+| `XC-7_5x20_FuseHolder` | 5×20 mm fuse holder | C3131 |
+| `ACT45B-510-2P-TL003` | CAN common-mode choke | C76584 |
+| `GSB311231HR` | Stacked USB 3.0 Type-A connector | C429838 |
+
+These changes are in the submodule's working tree and are not committed. Commit
+and push them in `parts/` first, then commit the new submodule pointer here.
+
+## Checking the schematic
+
+```sh
+cd hardware/kicad
+/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli sch erc --severity-all cm5-servo-dish-controller.kicad_sch
+```
+
+Expected result: `Found 0 violations`.
+
+## Fabrication
+
+Not started. The reference board is a 4-layer, 150 × 90 mm PCB assembled by JLCPCB
+with LCSC part numbers; this board is expected to follow it.
 
 ## STM32
 
-<!-- TODO: which STM32 part, its role on the board, and what lives in this directory (e.g. CubeMX .ioc pin configuration, firmware) -->
+`stm32/` is for the STM32G474RET6 firmware and its CubeMX `.ioc` file. Use the pin
+table above when creating the `.ioc`.
