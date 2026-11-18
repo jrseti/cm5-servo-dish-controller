@@ -2195,7 +2195,7 @@
 		)
 		(uuid "29133d3d-9f10-4b99-8075-c5475b7b75c8")
 	)
-	(text "GPIO0 (J4-13) as plain GPIO: add to config.txt\n  force_eeprom_read=0\n  disable_poe_fan=1\nor the firmware probes GPIO0/1 (I2C0) for a HAT EEPROM at boot."
+	(text "GPIO0 (J3-13) as plain GPIO: add to config.txt\n  force_eeprom_read=0\n  disable_poe_fan=1\nor the firmware probes GPIO0/1 (I2C0) for a HAT EEPROM at boot."
 		(exclude_from_sim no)
 		(at 60.96 113.792 0)
 		(effects
@@ -2206,7 +2206,7 @@
 		)
 		(uuid "2febd577-31f7-469f-ba33-988b303c7ae1")
 	)
-	(text "EEPROM WRITE PROTECT (EEPROM_nWP, J3 3-4)\nThe CM5 pulls EEPROM_nWP up internally (100k), so the\nbootloader EEPROM is writable unless J3 3-4 is fitted.\nThe jumper only takes effect once protection is enabled\nin the bootloader config (CM5 datasheet 2.12.2).\n\nProduction:\n- Set eeprom_write_protect=1 in the bootloader config\n  (via usbboot or rpi-eeprom-config) before shipping.\n- Fit the J3 3-4 jumper. The EEPROM is then protected\n  from power-up (CM5 datasheet 3.1).\n\nBootloader update:\n- Remove J3 3-4, update via usbboot or self-update,\n  then refit the jumper.\n\nWhy not a GPIO with a pull-down: CM5 EEPROM updates run\nonly via usbboot or bootloader self-update, before Linux can drive a GPIO, so the pin could\nnever be released for an update."
+	(text "EEPROM WRITE PROTECT (EEPROM_nWP, J5 3-4)\nThe CM5 pulls EEPROM_nWP up internally (100k), so the\nbootloader EEPROM is writable unless J5 3-4 is fitted.\nThe jumper only takes effect once protection is enabled\nin the bootloader config (CM5 datasheet 2.12.2).\n\nProduction:\n- Set eeprom_write_protect=1 in the bootloader config\n  (via usbboot or rpi-eeprom-config) before shipping.\n- Fit the J5 3-4 jumper. The EEPROM is then protected\n  from power-up (CM5 datasheet 3.1).\n\nBootloader update:\n- Remove J5 3-4, update via usbboot or self-update,\n  then refit the jumper.\n\nWhy not a GPIO with a pull-down: CM5 EEPROM updates run\nonly via usbboot or bootloader self-update, before Linux can drive a GPIO, so the pin could\nnever be released for an update."
 		(exclude_from_sim no)
 		(at 215.646 96.012 0)
 		(effects
@@ -2217,7 +2217,7 @@
 		)
 		(uuid "342137f9-6d01-4fc1-9444-f251dee01ff6")
 	)
-	(text "H5: optional I2C1 pull-ups R20/R21, normally OPEN.\nCM5 already pulls GPIO2/3 up with 1.8k (CM5 datasheet Table 4).\nFit H5 only for a long, high-capacitance bus\nat 400 kHz: ~1k total, ~2.9 mA sink at 0.4 V\n(I2C spec min 3 mA, so compliant devices are OK)."
+	(text "H6: optional I2C1 pull-ups R12/R21, normally OPEN.\nCM5 already pulls GPIO2/3 up with 1.8k (CM5 datasheet Table 4).\nFit H6 only for a long, high-capacitance bus\nat 400 kHz: ~1k total, ~2.9 mA sink at 0.4 V\n(I2C spec min 3 mA, so compliant devices are OK)."
 		(exclude_from_sim no)
 		(at 120.65 187.452 0)
 		(effects
@@ -2228,7 +2228,7 @@
 		)
 		(uuid "372d484b-1e6c-47c1-8198-246722d57e13")
 	)
-	(text "I2C PULL-UPS\nI2C1: GPIO2 = I2C1_SDA (J4-24), GPIO3 = I2C1_SCL (J4-22)\nPulled up to 3.3 V (GPIO_VREF) by 1.8 kΩ inside the CM5\n(CM5 datasheet Table 4, pins 56/58). No board pull-ups\nare needed. R20/R21 (2.2k, fitted via H5/H6) are optional."
+	(text "I2C PULL-UPS\nI2C1: GPIO2 = I2C1_SDA (J3-24), GPIO3 = I2C1_SCL (J3-22)\nPulled up to 3.3 V (GPIO_VREF) by 1.8 kΩ inside the CM5\n(CM5 datasheet Table 4, pins 56/58). No board pull-ups\nare needed. R12/R21 (2.2k, fitted via H6/H6) are optional."
 		(exclude_from_sim no)
 		(at 220.98 129.54 0)
 		(effects
@@ -2260,7 +2260,7 @@
 		)
 		(uuid "49c52580-cdce-44c0-b079-b639903359fb")
 	)
-	(text "CONSOLE UART (J5): CM5 UART0, 3.3 V logic, 115200 baud, 8N1, no flow control\n  J5-1  BOOT_CONSOLE_RXD (GPIO15, CM5 receives)   <- adapter TXD\n  J5-2  BOOT_CONSOLE_TXD (GPIO14, CM5 transmits)  -> adapter RXD\n  J5-3  GND                                       -- adapter GND\nTX and RX cross over: the adapter TXD goes to the CM5 RXD.\n\nUse an inexpensive USB-to-TTL serial cable (PL2303 / CP2102 / FTDI type) with\nfemale jumper leads. Typical colours: black GND, white RXD, green TXD, red 5V.\nCheck the labels on your cable.\n\nDO NOT connect the adapter 5V lead. The board powers itself and J5 has no 5V pin.\nA loose 5V lead can short to the header or the board, so it is best to cut it off\n(or insulate it).\nUse an adapter with 3.3 V signals only. CM5 GPIOs are not 5 V tolerant: check that\nthe adapter TXD idles at about 3.3 V with a meter before connecting.\n\nLinux console on GPIO14/15: dtparam=uart0_console in config.txt (Pi 5 / CM5 kernels).\nEarly bootloader messages go to the module debug UART, not to these pins.\nTO CHECK on first boards against the current Raspberry Pi documentation."
+	(text "CONSOLE UART (J4): CM5 UART0, 3.3 V logic, 115200 baud, 8N1, no flow control\n  J4-1  BOOT_CONSOLE_RXD (GPIO15, CM5 receives)   <- adapter TXD\n  J4-2  BOOT_CONSOLE_TXD (GPIO14, CM5 transmits)  -> adapter RXD\n  J4-3  GND                                       -- adapter GND\nTX and RX cross over: the adapter TXD goes to the CM5 RXD.\n\nUse an inexpensive USB-to-TTL serial cable (PL2303 / CP2102 / FTDI type) with\nfemale jumper leads. Typical colours: black GND, white RXD, green TXD, red 5V.\nCheck the labels on your cable.\n\nDO NOT connect the adapter 5V lead. The board powers itself and J4 has no 5V pin.\nA loose 5V lead can short to the header or the board, so it is best to cut it off\n(or insulate it).\nUse an adapter with 3.3 V signals only. CM5 GPIOs are not 5 V tolerant: check that\nthe adapter TXD idles at about 3.3 V with a meter before connecting.\n\nLinux console on GPIO14/15: dtparam=uart0_console in config.txt (Pi 5 / CM5 kernels).\nEarly bootloader messages go to the module debug UART, not to these pins.\nTO CHECK on first boards against the current Raspberry Pi documentation."
 		(exclude_from_sim no)
 		(at 16.51 147.32 0)
 		(effects
@@ -2271,7 +2271,7 @@
 		)
 		(uuid "59b5c7cd-9338-40a3-9b53-036619d169b0")
 	)
-	(text "J4 pins 2 and 4 are not connected.\nOn the CM4 board they were the AIN0/AIN1 ADC inputs.\nThe CM5 has no ADC pins (module pins 94/96 are now\nCC1/CC2), so the inputs and their clamps are removed."
+	(text "J3 pins 2 and 4 are not connected.\nOn the CM4 board they were the AIN0/AIN1 ADC inputs.\nThe CM5 has no ADC pins (module pins 94/96 are now\nCC1/CC2), so the inputs and their clamps are removed."
 		(exclude_from_sim no)
 		(at 60.452 110.744 0)
 		(effects
@@ -2334,7 +2334,7 @@
 		)
 		(uuid "807e8285-9c1a-47ad-8cd7-d74550796211")
 	)
-	(text "POWER-CYCLE CONTROL (nPWR_CYCLE)\nLets the CM5 cut its own power after a clean shutdown and restart\nby itself. Use it when a normal reboot is not enough: it fully resets\nthe PMIC and all on-module power rails.\n\nHow it works:\n- GPIO6 drives U10 (74LVC1G07, open-drain). J3 pins 5-6 connect U10's\n  output to PMIC_EN (CM5 pin 99, 100k internal pull-up to 5V).\n- GPIO6 high (default pull-up at reset): U10 output is off and the\n  CM5 runs.\n- GPIO6 low: PMIC_EN is pulled low and the CM5 powers off.\n- U10 is powered from 3V3_CM5, which switches off with the CM5, so\n  U10 releases PMIC_EN and the CM5 powers back on.\n\nUse:\n- Fit the J3 5-6 jumper to enable. Fit J3 5-6 only after the \n  board and GPIO6 behaviour have been verified.\n- config.txt: dtoverlay=gpio-poweroff,gpiopin=6,active_low=1\n  \"sudo poweroff\" then shuts down cleanly and power-cycles the CM5.\n- Do not drive GPIO6 low while the OS is running. CM5 datasheet\n  2.12.2: pull PMIC_EN low only after the OS has shut down.\n- The low time here is set by how fast 3V3_CM5 decays and is not\n  guaranteed. This circuit is carried over from the CM4 board and is\n  not yet proven on a CM5: check it with a scope on first boards.\n"
+	(text "POWER-CYCLE CONTROL (nPWR_CYCLE)\nLets the CM5 cut its own power after a clean shutdown and restart\nby itself. Use it when a normal reboot is not enough: it fully resets\nthe PMIC and all on-module power rails.\n\nHow it works:\n- GPIO6 drives U9 (74LVC1G07, open-drain). J5 pins 5-6 connect U9's\n  output to PMIC_EN (CM5 pin 99, 100k internal pull-up to 5V).\n- GPIO6 high (default pull-up at reset): U9 output is off and the\n  CM5 runs.\n- GPIO6 low: PMIC_EN is pulled low and the CM5 powers off.\n- U9 is powered from 3V3_CM5, which switches off with the CM5, so\n  U9 releases PMIC_EN and the CM5 powers back on.\n\nUse:\n- Fit the J5 5-6 jumper to enable. Fit J5 5-6 only after the \n  board and GPIO6 behaviour have been verified.\n- config.txt: dtoverlay=gpio-poweroff,gpiopin=6,active_low=1\n  \"sudo poweroff\" then shuts down cleanly and power-cycles the CM5.\n- Do not drive GPIO6 low while the OS is running. CM5 datasheet\n  2.12.2: pull PMIC_EN low only after the OS has shut down.\n- The low time here is set by how fast 3V3_CM5 decays and is not\n  guaranteed. This circuit is carried over from the CM4 board and is\n  not yet proven on a CM5: check it with a scope on first boards.\n"
 		(exclude_from_sim no)
 		(at 146.812 98.552 0)
 		(effects
@@ -2376,7 +2376,7 @@
 		)
 		(uuid "f277ca29-2390-40bd-b66c-1021ef592967")
 	)
-	(text "F9 (100 mA PTC, SMD0603-010-24V) fuses the 3.3 V on J4 pin 5: a short on a\nplug-in board trips F9, not the CM5 rail. HAT budget 100 mA; CN3 has F8."
+	(text "F1 (100 mA PTC, SMD0603-010-24V) fuses the 3.3 V on J3 pin 5: a short on a\nplug-in board trips F1, not the CM5 rail. HAT budget 100 mA; CN1 has F8."
 		(exclude_from_sim no)
 		(at 52.324 92.71 0)
 		(effects
@@ -3414,7 +3414,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "028c60fc-d6fe-444a-98b4-6ae43525de0b")
-		(property "Reference" "#PWR0469"
+		(property "Reference" "#PWR040"
 			(at 100.33 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -3475,7 +3475,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0469")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -3493,7 +3493,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0fcc6b56-0957-4750-9d4a-ee0a6be8085b")
-		(property "Reference" "#PWR0468"
+		(property "Reference" "#PWR039"
 			(at 100.33 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -3554,7 +3554,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0468")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -3571,7 +3571,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2fb1e11f-764d-405a-919a-ea9c2938d5db")
-		(property "Reference" "R20"
+		(property "Reference" "R12"
 			(at 132.84 172.72 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3701,7 +3701,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "R20")
+					(reference "R12")
 					(unit 1)
 				)
 			)
@@ -3718,7 +3718,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "39dc5246-62d5-47dc-8d2e-2f3e30515450")
-		(property "Reference" "J5"
+		(property "Reference" "J4"
 			(at 166.116 147.066 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3829,7 +3829,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "J5")
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -3847,7 +3847,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "41b416e7-5241-427a-8619-94ba3eaaf38c")
-		(property "Reference" "#PWR0467"
+		(property "Reference" "#PWR038"
 			(at 100.33 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -3908,7 +3908,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0467")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -3926,7 +3926,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4768befe-ca86-4baa-9034-f174ec652183")
-		(property "Reference" "#PWR0110"
+		(property "Reference" "#PWR048"
 			(at 205.74 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -3987,7 +3987,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0110")
+					(reference "#PWR048")
 					(unit 1)
 				)
 			)
@@ -4004,7 +4004,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "49fa96e9-360b-4574-aba4-e9c057848f9a")
-		(property "Reference" "F9"
+		(property "Reference" "F1"
 			(at 72.39 61.468 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4111,7 +4111,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "F9")
+					(reference "F1")
 					(unit 1)
 				)
 			)
@@ -4128,7 +4128,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5cf53d7b-8cc7-4593-ab51-67e81741db2e")
-		(property "Reference" "J3"
+		(property "Reference" "J5"
 			(at 190.246 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4246,7 +4246,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "J3")
+					(reference "J5")
 					(unit 1)
 				)
 			)
@@ -4263,7 +4263,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9477c6e4-b5cb-4643-8aae-5dbb7800efcd")
-		(property "Reference" "C84"
+		(property "Reference" "C12"
 			(at 177.8 55.88 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4393,7 +4393,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "C84")
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -4410,7 +4410,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9e496b0a-4d1e-4f8b-b52a-392e39b11d9e")
-		(property "Reference" "H5"
+		(property "Reference" "H6"
 			(at 158.75 163.83 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4519,7 +4519,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "H5")
+					(reference "H6")
 					(unit 1)
 				)
 			)
@@ -4536,7 +4536,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a2b4c5b2-9fde-4feb-8642-628cbe3d8427")
-		(property "Reference" "J4"
+		(property "Reference" "J3"
 			(at 85.09 67.056 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4708,7 +4708,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "J4")
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -4726,7 +4726,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a2c53c22-e9c9-45f1-ab3d-31268a3a4e16")
-		(property "Reference" "#PWR0107"
+		(property "Reference" "#PWR044"
 			(at 161.29 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -4787,7 +4787,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0107")
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)
@@ -4805,7 +4805,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c3e7ed22-d6ed-40ba-956f-5d3f360875c1")
-		(property "Reference" "#PWR0106"
+		(property "Reference" "#PWR037"
 			(at 63.5 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -4866,7 +4866,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0106")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -4884,7 +4884,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c55542ee-ac3c-46a3-bd9b-45797864d466")
-		(property "Reference" "#PWR0470"
+		(property "Reference" "#PWR041"
 			(at 100.33 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -4945,7 +4945,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0470")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -5097,7 +5097,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d5adc98b-ff8d-4652-8437-dcf4a565f80d")
-		(property "Reference" "U10"
+		(property "Reference" "U9"
 			(at 157.48 64.516 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5212,7 +5212,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "U10")
+					(reference "U9")
 					(unit 1)
 				)
 			)
@@ -5230,7 +5230,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eaa92078-7ee5-4bcd-ae73-42a5cfc7d41f")
-		(property "Reference" "#PWR0108"
+		(property "Reference" "#PWR043"
 			(at 143.51 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -5291,7 +5291,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0108")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -5309,7 +5309,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ee2acf5b-73c6-443c-a71c-72e64322fcec")
-		(property "Reference" "#PWR0109"
+		(property "Reference" "#PWR046"
 			(at 180.34 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -5370,7 +5370,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0109")
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -5388,7 +5388,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f29fb8c2-fecd-4a8c-bc76-d567b2c89682")
-		(property "Reference" "#PWR0111"
+		(property "Reference" "#PWR047"
 			(at 187.96 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -5449,7 +5449,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0111")
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -5467,7 +5467,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f75ed390-3abb-4c61-b956-f98e9461a58f")
-		(property "Reference" "#PWR0465"
+		(property "Reference" "#PWR045"
 			(at 176.53 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -5528,7 +5528,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0465")
+					(reference "#PWR045")
 					(unit 1)
 				)
 			)
@@ -5546,7 +5546,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f92f3f8d-5baa-45d8-ae64-421f951c2598")
-		(property "Reference" "#PWR0471"
+		(property "Reference" "#PWR042"
 			(at 100.33 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -5607,7 +5607,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "#PWR0471")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -5624,7 +5624,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fc73ab0f-b6bb-4e27-8d9e-3c243203cebb")
-		(property "Reference" "R21"
+		(property "Reference" "R13"
 			(at 156.97 172.72 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5754,7 +5754,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/ea625b3a-a58b-4ce4-9f3d-01a79f8438bc"
-					(reference "R21")
+					(reference "R13")
 					(unit 1)
 				)
 			)

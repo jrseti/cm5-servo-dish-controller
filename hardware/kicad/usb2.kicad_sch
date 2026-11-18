@@ -2236,7 +2236,7 @@
 		)
 		(uuid "68c7c52e-ceed-4cbc-992f-7871bf81c0b6")
 	)
-	(text "USB-C carries the CM5 USB 2.0 port (module pins 103/105). It is a device\nport for rpiboot (eMMC flashing) only. There is no mux: on the CM5 the two\nUSB-A ports have their own USB 3.0 controllers.\nUSB_OTG_ID (module pin 101) is left open = device role.\nUSBC1 VBUS is not used (the board takes no power from USB-C).\nD24 SMF6.0A clamps it; TP33 is there to probe it.\nNo USB-PD controller; CC has 5.1 kΩ Rd only.\nFlashing: fit the nRPIBOOT jumper (J3 1-2), power the board,\nconnect USB-C to the PC and run rpiboot."
+	(text "USB-C carries the CM5 USB 2.0 port (module pins 103/105). It is a device\nport for rpiboot (eMMC flashing) only. There is no mux: on the CM5 the two\nUSB-A ports have their own USB 3.0 controllers.\nUSB_OTG_ID (module pin 101) is left open = device role.\nUSBC1 VBUS is not used (the board takes no power from USB-C).\nD7 SMF6.0A clamps it; TP30 is there to probe it.\nNo USB-PD controller; CC has 5.1 kΩ Rd only.\nFlashing: fit the nRPIBOOT jumper (J5 1-2), power the board,\nconnect USB-C to the PC and run rpiboot."
 		(exclude_from_sim no)
 		(at 27.178 89.916 0)
 		(effects
@@ -2773,7 +2773,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0478c5e6-82cc-4c93-a461-d09879176481")
-		(property "Reference" "#PWR088"
+		(property "Reference" "#PWR095"
 			(at 58.42 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -2834,7 +2834,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/d3e40802-8c80-491e-9238-e962cd612968/47c45030-5e0e-4373-90dd-e8e713456a1d"
-					(reference "#PWR088")
+					(reference "#PWR095")
 					(unit 1)
 				)
 			)
@@ -2851,7 +2851,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0f3b3e57-8e00-4116-8e4f-50460a5c13bc")
-		(property "Reference" "R63"
+		(property "Reference" "R37"
 			(at 47.244 72.39 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2980,7 +2980,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/d3e40802-8c80-491e-9238-e962cd612968/47c45030-5e0e-4373-90dd-e8e713456a1d"
-					(reference "R63")
+					(reference "R37")
 					(unit 1)
 				)
 			)
@@ -2998,7 +2998,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5c624eb4-5b74-4d2a-91dd-9ee4a1d1c844")
-		(property "Reference" "#PWR0454"
+		(property "Reference" "#PWR097"
 			(at 86.36 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -3059,7 +3059,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/d3e40802-8c80-491e-9238-e962cd612968/47c45030-5e0e-4373-90dd-e8e713456a1d"
-					(reference "#PWR0454")
+					(reference "#PWR097")
 					(unit 1)
 				)
 			)
@@ -3076,7 +3076,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "96da6831-9e57-4f0a-9bde-c4c730058619")
-		(property "Reference" "TP33"
+		(property "Reference" "TP30"
 			(at 53.594 46.736 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3136,7 +3136,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/d3e40802-8c80-491e-9238-e962cd612968/47c45030-5e0e-4373-90dd-e8e713456a1d"
-					(reference "TP33")
+					(reference "TP30")
 					(unit 1)
 				)
 			)
@@ -3318,7 +3318,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a10a74de-9df5-42c5-ab7b-83f391602995")
-		(property "Reference" "R62"
+		(property "Reference" "R36"
 			(at 40.894 72.39 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3447,7 +3447,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/d3e40802-8c80-491e-9238-e962cd612968/47c45030-5e0e-4373-90dd-e8e713456a1d"
-					(reference "R62")
+					(reference "R36")
 					(unit 1)
 				)
 			)
@@ -3465,7 +3465,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b5fbb82f-fe6c-4985-aee3-f7565a522c01")
-		(property "Reference" "#PWR087"
+		(property "Reference" "#PWR096"
 			(at 81.28 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -3526,7 +3526,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/d3e40802-8c80-491e-9238-e962cd612968/47c45030-5e0e-4373-90dd-e8e713456a1d"
-					(reference "#PWR087")
+					(reference "#PWR096")
 					(unit 1)
 				)
 			)
@@ -3543,7 +3543,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fd427166-11cf-4ec1-abb2-814fa65fd2ce")
-		(property "Reference" "D24"
+		(property "Reference" "D7"
 			(at 91.44 51.054 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3679,7 +3679,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/3cc0f123-2315-4414-aa85-3a1a0bb694eb/d3e40802-8c80-491e-9238-e962cd612968/47c45030-5e0e-4373-90dd-e8e713456a1d"
-					(reference "D24")
+					(reference "D7")
 					(unit 1)
 				)
 			)

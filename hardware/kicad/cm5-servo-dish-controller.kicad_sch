@@ -1162,7 +1162,7 @@
 		)
 		(uuid "089f0626-adc3-4f83-960b-f289f3b7d1ce")
 	)
-	(text "GND: single board ground. J1 pin 2 (5 V\nreturn) is GND. The DDR-60L-5 isolates it\nfrom the 48 V battery. No motor current\nflows on this board, so there is no\nseparate power ground. The CAN bus side has its\nown isolated ground (CAN_GND, CAN sheet)."
+	(text "GND: single board ground. J7 pin 2 (5 V\nreturn) is GND. The DDR-60L-5 isolates it\nfrom the 48 V battery. No motor current\nflows on this board, so there is no\nseparate power ground. The CAN bus side has its\nown isolated ground (CAN_GND, CAN sheet)."
 		(exclude_from_sim no)
 		(at 33.02 150 0)
 		(effects
@@ -1184,7 +1184,7 @@
 		)
 		(uuid "3c8adaf1-b8c7-4e86-a60b-67ae3b5d14c4")
 	)
-	(text "H1/H2/H3/H4: M3 plated mounting holes\non CHASSIS. Bond to the metal enclosure\nor dish frame.\nH7: M2.5 hole, no copper, for the standoff\nof a J4 HAT board (M2.5 x 11 mm)."
+	(text "H1/H2/H3/H4: M3 plated mounting holes\non CHASSIS. Bond to the metal enclosure\nor dish frame.\nH5: M2.5 hole, no copper, for the standoff\nof a J3 HAT board (M2.5 x 11 mm)."
 		(exclude_from_sim no)
 		(at 114.3 168.91 0)
 		(effects
@@ -1217,7 +1217,7 @@
 		)
 		(uuid "76d87bea-069f-4001-817c-9adf6256149a")
 	)
-	(text "R2/C1: CHASSIS-GND static bleed (R2) and HF\nbond (C1, keep 2 kV). Connector shields (RJ45,\nUSB, CAN) and the Ethernet termination (P10)\ngo to CHASSIS. Installed, GND is also bonded\nto the box at the J2 antenna arrestor, so R2\nis bypassed at DC."
+	(text "R1/C1: CHASSIS-GND static bleed (R1) and HF\nbond (C1, keep 2 kV). Connector shields (RJ45,\nUSB, CAN) and the Ethernet termination (P10)\ngo to CHASSIS. Installed, GND is also bonded\nto the box at the J8 antenna arrestor, so R1\nis bypassed at DC."
 		(exclude_from_sim no)
 		(at 76.2 186.69 0)
 		(effects
@@ -1228,7 +1228,7 @@
 		)
 		(uuid "a71bddb7-cf07-4ee3-a983-2b6d5d94dbea")
 	)
-	(text "48 V battery -> Mean Well DDR-60L-5 (external,\nisolated DIN-rail converter) -> 5 V -> J1"
+	(text "48 V battery -> Mean Well DDR-60L-5 (external,\nisolated DIN-rail converter) -> 5 V -> J7"
 		(exclude_from_sim no)
 		(at 60.96 69.85 0)
 		(effects
@@ -1702,7 +1702,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "0ca70c35-7fe8-42d6-b6bb-d2f27f45154d")
-		(property "Reference" "TP2"
+		(property "Reference" "TP1"
 			(at 80.264 163.576 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1762,7 +1762,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "TP2")
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -1867,7 +1867,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "23cacd37-152a-4ee9-b31f-93580437ee68")
-		(property "Reference" "#FLG14"
+		(property "Reference" "#FLG01"
 			(at 83.82 149.225 0)
 			(hide yes)
 			(show_name no)
@@ -1927,7 +1927,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "#FLG14")
+					(reference "#FLG01")
 					(unit 1)
 				)
 			)
@@ -1944,7 +1944,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "30466abf-2df2-4f66-9a43-2380a9a8b775")
-		(property "Reference" "#PWR0440"
+		(property "Reference" "#PWR03"
 			(at 116.84 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2005,7 +2005,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "#PWR0440")
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -2198,7 +2198,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "726a54d6-718d-4b60-af8c-09a4df0512fd")
-		(property "Reference" "R2"
+		(property "Reference" "R1"
 			(at 91.44 150.876 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2326,7 +2326,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "R2")
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -2343,7 +2343,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "76a8caa9-6c62-4186-8e31-0bde5b197beb")
-		(property "Reference" "#PWR0441"
+		(property "Reference" "#PWR04"
 			(at 127 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2404,7 +2404,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "#PWR0441")
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -2421,7 +2421,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "988f7bca-afbc-4284-9b13-33b04412fba8")
-		(property "Reference" "H7"
+		(property "Reference" "H5"
 			(at 157.48 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2489,7 +2489,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "H7")
+					(reference "H5")
 					(unit 1)
 				)
 			)
@@ -2651,7 +2651,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bc87d29c-c4ae-4802-b4a6-7cf7f98bcaef")
-		(property "Reference" "#PWR0439"
+		(property "Reference" "#PWR02"
 			(at 99.06 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -2711,7 +2711,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "#PWR0439")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -2728,7 +2728,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "deeef7e8-a99b-4f17-926b-79ad97b99668")
-		(property "Reference" "#PWR0438"
+		(property "Reference" "#PWR01"
 			(at 83.82 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -2788,7 +2788,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "#PWR0438")
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -2805,7 +2805,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ec3dfe53-9ddb-4c11-9a6e-762faef0736b")
-		(property "Reference" "#PWR0442"
+		(property "Reference" "#PWR05"
 			(at 137.16 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2866,7 +2866,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "#PWR0442")
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -2883,7 +2883,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f93b088b-18c6-4c3b-8b4d-cca1de902cab")
-		(property "Reference" "#PWR0443"
+		(property "Reference" "#PWR06"
 			(at 147.32 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2944,7 +2944,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(reference "#PWR0443")
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)

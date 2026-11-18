@@ -63,15 +63,15 @@ Each sheet carries notes explaining its part values.
 
 - **Supply:** a Mean Well DDR-60L-5 DIN-rail converter, mounted off the board. It
   takes the 48 V battery (18–75 V input) and gives 5 V at up to 12 A, isolated to
-  4 kVdc. Its +Vo terminals (3, 4) go to J1 pin 1 and its −Vo terminals (1, 2) to
-  J1 pin 2. The board's load budget is 5 A.
-- **Input:** J1 screw terminal, F1 (5×20 mm fuse, T6.3A), Q8 and Q9, then the `5V`
-  rail with D31 (SMCJ6.0A surge clamp), C105–C110 (224 µF bulk) and LED3.
-  - Q8 (SI7137DP P-channel MOSFET, 2.5 mΩ) is the reverse-polarity protection. A
-    reversed supply leaves it off: nothing reaches the board and F1 does not blow.
-  - Q9 (a second SI7137DP, back to back with Q8) is the on/off switch, driven by
+  4 kVdc. Its +Vo terminals (3, 4) go to J7 pin 1 and its −Vo terminals (1, 2) to
+  J7 pin 2. The board's load budget is 5 A.
+- **Input:** J7 screw terminal, F2 (5×20 mm fuse, T6.3A), Q1 and Q2, then the `5V`
+  rail with D2 (SMCJ6.0A surge clamp), C13–C18 (224 µF bulk) and LED3.
+  - Q1 (SI7137DP P-channel MOSFET, 2.5 mΩ) is the reverse-polarity protection. A
+    reversed supply leaves it off: nothing reaches the board and F2 does not blow.
+  - Q2 (a second SI7137DP, back to back with Q1) is the on/off switch, driven by
     SW1. SW1 switches the board only; the converter stays powered.
-  - TP68 is a bare pad on `V_IN_F` between F1 and Q8, for checking the fuse. TP24
+  - TP13 is a bare pad on `V_IN_F` between F2 and Q1, for checking the fuse. TP14
     is the `5V` rail.
 - **3.3 V:** the CM5 supplies `3V3_CM5` as before. The STM32 has its own regulator
   (`3V3_MCU`), so it keeps running while the CM5 is off or rebooting.
@@ -98,8 +98,8 @@ STM32 pin use:
 | PA13 / PA14 / PB3 | SWDIO / SWCLK / SWO | STDC14 |
 | PA2 / PA3 | USART2 (or LPUART1) TX / RX | STDC14 virtual COM port |
 | PC6 / PC7 | CANopen RUN (green) / ERR (red) LED | LED5 / LED6 |
-| PF0 / PF1 | 24 MHz crystal | X2 |
-| PG10 | NRST | CM5 GPIO23 (through Q7), STDC14 |
+| PF0 / PF1 | 24 MHz crystal | X1 |
+| PG10 | NRST | CM5 GPIO23 (through Q3), STDC14 |
 | PB8 | BOOT0 | CM5 GPIO24 |
 
 All other pins are unconnected.
@@ -111,34 +111,34 @@ CM5 GPIO changes from the CM4 board: GPIO23 `MCU_RST`, GPIO24 `MCU_BOOT0`, GPIO2
 
 Check these before layout or ordering:
 
-1. **5 V setting.** The converter's output is adjustable from 4.5 V to 5.5 V. F1, Q8,
-   Q9 and the cable drop about 0.2 V at 5 A. With the board running, adjust the
-   converter until TP24 reads 5.10 V. The CM5 needs 4.75–5.25 V.
+1. **5 V setting.** The converter's output is adjustable from 4.5 V to 5.5 V. F2, Q1,
+   Q2 and the cable drop about 0.2 V at 5 A. With the board running, adjust the
+   converter until TP14 reads 5.10 V. The CM5 needs 4.75–5.25 V.
 2. **Supply over-voltage.** The converter is rated for 18–75 V input. If the servo
    drives can pump the 48 V bus above 75 V when braking, fit brake resistors on the
    drives. The 48 V feed to the converter also needs its own fuse, off the board.
-3. **Fuse.** F1 is the fuse holder; the assembler does not fit the fuse. Fit a
+3. **Fuse.** F2 is the fuse holder; the assembler does not fit the fuse. Fit a
    Littelfuse 021806.3MXP (6.3 A time-lag, glass, LCSC C142706) by hand. It is
-   named in F1's `Fuse` field. Do not fit a larger fuse: the holder is rated 6.3 A.
+   named in F2's `Fuse` field. Do not fit a larger fuse: the holder is rated 6.3 A.
    The converter limits its output to 12.6–16.2 A, which is only 2.0 to 2.6 times
-   the fuse rating, so into a short F1 opens slowly (within 2 minutes at 13.2 A)
+   the fuse rating, so into a short F2 opens slowly (within 2 minutes at 13.2 A)
    and may not open at 12.6 A. The converter's current limit is the short-circuit
-   protection. Lay out the copper from J1 through F1, Q8 and Q9 for 16 A.
-4. **CM5 module connectors.** J17/J18 are still the Hirose DF40C-100DS-0.4V(51)
+   protection. Lay out the copper from J7 through F2, Q1 and Q2 for 16 A.
+4. **CM5 module connectors.** J1/J18 are still the Hirose DF40C-100DS-0.4V(51)
    parts from the CM4 board. The CM5 datasheet names Amphenol 10164227-1001A1RLF
    as the mating part, tested to the CM5's higher current.
-5. **Self power-cycle circuit** (`nPWR_CYCLE`, U10) is carried over from the CM4
+5. **Self power-cycle circuit** (`nPWR_CYCLE`, U9) is carried over from the CM4
    board and is not proven on a CM5.
 6. **Console UART notes** on the connectors sheet (how to enable the Linux console
    on GPIO14/15 on a CM5) need checking against current Raspberry Pi documentation.
 7. **Part stock.** All fitted parts were checked against live JLCPCB stock on
-   2026-11-17. Two that were out of stock were replaced: U25 (now CA-IS3052G,
+   2026-11-17. Two that were out of stock were replaced: U18 (now CA-IS3052G,
    same pinout and footprint as the ISO1042) and USB1 (now Molex 48406-0003).
-   Still low: U18 TPS70933DBVR (10), U20 LTC4311ISC6 (15), U7 LM75BIMX-3 (54),
-   U24 STM32G474RET6 (72), J19 FTSH-107-01-L-DV-K-A (173). Recheck stock before
+   Still low: U13 TPS70933DBVR (10), U20 LTC4311ISC6 (15), U19 LM75BIMX-3 (54),
+   U14 STM32G474RET6 (72), J10 FTSH-107-01-L-DV-K-A (173). Recheck stock before
    ordering.
-   The 5 V input parts were checked the same day: Q8/Q9 SI7137DP-T1-GE3 (C784367)
-   and D31 SMCJ6.0A/TR13 (C310065) each had over 100,000 in stock.
+   The 5 V input parts were checked the same day: Q1/Q9 SI7137DP-T1-GE3 (C784367)
+   and D2 SMCJ6.0A/TR13 (C310065) each had over 100,000 in stock.
    The USB1 footprint comes from EasyEDA; check it against the Molex drawing
    before layout.
 8. **Net classes** in the project file were updated for the new net names, but the
@@ -160,10 +160,10 @@ Check these before layout or ordering:
   footprints, so other projects are unaffected.
   - Standard packages have IPC-7351B names. Most come from the reference project.
     The ones added here are named from datasheet maximum heights:
-    `QFP50P1200X1200X160-64N` (STM32), `SON127P615X515X120-9N` (Q8/Q9),
+    `QFP50P1200X1200X160-64N` (STM32), `SON127P615X515X120-9N` (Q1/Q9),
     `SOIC127P1150X280-8N` (CA-IS3052G), `SOT95P240X110-3N` (PESD2CANFD27V),
-    `RESC2012X60N`, `OSCCC320X250X80-4N` (X2) and `SOP127P835X250-4N` (SW2).
-  - `SON127P615X515X120-9N` was made for the BSC098N10NS5 (TDSON-8). Q8/Q9 are in
+    `RESC2012X60N`, `OSCCC320X250X80-4N` (X1) and `SOP127P835X250-4N` (SW2).
+  - `SON127P615X515X120-9N` was made for the BSC098N10NS5 (TDSON-8). Q1/Q9 are in
     Vishay's PowerPAK SO-8, which has the same land pattern and pin order; its
     maximum height is 1.12 mm, not the 1.20 mm in the name.
   - Four footprints made for the 48 V stage are no longer used and are still in
@@ -172,11 +172,11 @@ Check these before layout or ordering:
   - Parts with no IPC-7351 package family (connectors, headers, modules, switches,
     the CAN choke, the battery, the RH-5016 test points) are named manufacturer_part,
     e.g. `Molex_48406-0003`, `HanRun_HR911130A`, `PinHeader_2x12_P2.54mm_Vertical`.
-  - D31 uses the reference project's SMC pattern `DIOM7959X262N`
+  - D2 uses the reference project's SMC pattern `DIOM7959X262N`
     (2.7 × 3.3 mm pads instead of 3.03 × 3.82 mm).
-  - `Samtec_FTSH-107-01-L-DV-K-A` (J19) numbers its pads `01`–`14` to match the
+  - `Samtec_FTSH-107-01-L-DV-K-A` (J10) numbers its pads `01`–`14` to match the
     STDC14 symbol. The `MyParts` footprint numbers them `1`–`14`, which left
-    J19 pins 1–9 without pads.
+    J10 pins 1–9 without pads.
 - **3D models:** set the KiCad path variable `MYPARTS` to `<clone>/parts` and
   `MYPARTS_DATASHEETS` to `<clone>/parts/datasheets`
   (**Preferences → Configure Paths**).

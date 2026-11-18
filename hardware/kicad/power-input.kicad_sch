@@ -3127,7 +3127,7 @@
 		)
 		(uuid "0c1efe05-ef50-48a3-89fe-ddf1ff5d9e5a")
 	)
-	(text "Supply: 5 V DC from a Mean Well DDR-60L-5 DIN-rail converter. The converter is not on this board. It converts and\nisolates the 48 V battery (18-75 V in, 5 V 12 A out, 4 kVdc input to output). There is no 48 V on this board.\nWiring: DDR-60L-5 +Vo (terminals 3, 4) to J1 pin 1, -Vo (terminals 1, 2) to J1 pin 2. Fuse the 48 V feed to the\nconverter separately. Board load budget: 5 A (25 W), under half of the converter's rating.\n\n5 V setting: the converter output adjusts from 4.5 V to 5.5 V. F1, Q8, Q9 and the cable drop about 0.2 V at 5 A.\n    With the board running, adjust the converter until TP24 reads 5.10 V. TP24 must stay within 4.75-5.25 V (CM5 limits).\n\nF1  5x20 mm fuse in a PCB holder (XC-7, LCSC C3131, rated 6.3 A). The fuse is fitted by hand, not by the assembler.\n    Fuse: Littelfuse 021806.3MXP (LCSC C142706): 6.3 A time-lag, glass, 7.6 mOhm. Do not fit a larger fuse: 6.3 A is\n    the holder's limit. The converter limits its output to 12.6-16.2 A (constant current), 2.0 to 2.6 times the fuse\n    rating. Into a short F1 opens slowly: within 2 minutes at 13.2 A, and it may not open at 12.6 A. The converter's\n    current limit is the short-circuit protection: size the copper from J1 through F1, Q8 and Q9 for 16 A.\nQ8  SI7137DP P-channel MOSFET (20 V, 2.5 mOhm at 4.5 V): reverse-polarity protection. With J1 pin 1 positive the body\n    diode lifts the source, the gate is at GND through SW1, and Q8 turns on. With the supply reversed the gate and\n    source are both near 0 V, so Q8 stays off and blocks: nothing reaches the board and F1 does not blow.\nQ9  Second SI7137DP, back to back with Q8 (sources joined): the on/off switch. Q8 alone cannot switch the board off,\n    because its body diode conducts. SW1 2-3 closed = ON (gates to GND). SW1 2-1 = OFF: R136 holds both gates at the\n    sources. The converter stays powered when SW1 is off. Q8 + Q9 drop about 25 mV and dissipate 0.13 W at 5 A.\n    The gates see the full input voltage: the gate rating is 12 V, and D31 clamps below that.\nD31 SMCJ6.0A 1.5 kW TVS: 6 V stand-off (above the converter's 5.5 V maximum setting), 6.67 V minimum breakdown,\n    10.3 V clamp. It absorbs cable ringing when the supply is connected live. It sits after Q8/Q9 so that a reversed\n    supply cannot forward-bias it. It cannot absorb a sustained over-voltage: the converter's own over-voltage\n    shutdown (5.75-7 V) covers that.\nC105/C106 100 uF 10 V polymer, C107-C110 10 uF: bulk capacitance of the 5V rail. They are after Q8, so a reversed\n    supply never reaches the polarized parts. The converter allows up to 6800 uF of external capacitance.\n\nJ1 pin 2 is board GND. The converter isolates it from the battery negative. GND is tied to CHASSIS on the top sheet."
+	(text "Supply: 5 V DC from a Mean Well DDR-60L-5 DIN-rail converter. The converter is not on this board. It converts and\nisolates the 48 V battery (18-75 V in, 5 V 12 A out, 4 kVdc input to output). There is no 48 V on this board.\nWiring: DDR-60L-5 +Vo (terminals 3, 4) to J7 pin 1, -Vo (terminals 1, 2) to J7 pin 2. Fuse the 48 V feed to the\nconverter separately. Board load budget: 5 A (25 W), under half of the converter's rating.\n\n5 V setting: the converter output adjusts from 4.5 V to 5.5 V. F2, Q1, Q2 and the cable drop about 0.2 V at 5 A.\n    With the board running, adjust the converter until TP14 reads 5.10 V. TP14 must stay within 4.75-5.25 V (CM5 limits).\n\nF2  5x20 mm fuse in a PCB holder (XC-7, LCSC C3131, rated 6.3 A). The fuse is fitted by hand, not by the assembler.\n    Fuse: Littelfuse 021806.3MXP (LCSC C142706): 6.3 A time-lag, glass, 7.6 mOhm. Do not fit a larger fuse: 6.3 A is\n    the holder's limit. The converter limits its output to 12.6-16.2 A (constant current), 2.0 to 2.6 times the fuse\n    rating. Into a short F2 opens slowly: within 2 minutes at 13.2 A, and it may not open at 12.6 A. The converter's\n    current limit is the short-circuit protection: size the copper from J7 through F2, Q1 and Q2 for 16 A.\nQ1  SI7137DP P-channel MOSFET (20 V, 2.5 mOhm at 4.5 V): reverse-polarity protection. With J7 pin 1 positive the body\n    diode lifts the source, the gate is at GND through SW1, and Q1 turns on. With the supply reversed the gate and\n    source are both near 0 V, so Q1 stays off and blocks: nothing reaches the board and F2 does not blow.\nQ2  Second SI7137DP, back to back with Q1 (sources joined): the on/off switch. Q1 alone cannot switch the board off,\n    because its body diode conducts. SW1 2-3 closed = ON (gates to GND). SW1 2-1 = OFF: R14 holds both gates at the\n    sources. The converter stays powered when SW1 is off. Q1 + Q2 drop about 25 mV and dissipate 0.13 W at 5 A.\n    The gates see the full input voltage: the gate rating is 12 V, and D2 clamps below that.\nD2 SMCJ6.0A 1.5 kW TVS: 6 V stand-off (above the converter's 5.5 V maximum setting), 6.67 V minimum breakdown,\n    10.3 V clamp. It absorbs cable ringing when the supply is connected live. It sits after Q1/Q9 so that a reversed\n    supply cannot forward-bias it. It cannot absorb a sustained over-voltage: the converter's own over-voltage\n    shutdown (5.75-7 V) covers that.\nC13/C106 100 uF 10 V polymer, C15-C18 10 uF: bulk capacitance of the 5V rail. They are after Q1, so a reversed\n    supply never reaches the polarized parts. The converter allows up to 6800 uF of external capacitance.\n\nJ7 pin 2 is board GND. The converter isolates it from the battery negative. GND is tied to CHASSIS on the top sheet."
 		(exclude_from_sim no)
 		(at 55.88 102.87 0)
 		(effects
@@ -3160,7 +3160,7 @@
 		)
 		(uuid "88946937-5f56-4df3-bb5a-158902954fdf")
 	)
-	(text "SW1 2-3 closed = ON (gates to GND)\nSW1 2-1 = OFF (pin 1 open, R136 holds the gates at the sources)"
+	(text "SW1 2-3 closed = ON (gates to GND)\nSW1 2-1 = OFF (pin 1 open, R14 holds the gates at the sources)"
 		(exclude_from_sim no)
 		(at 152.4 80.01 0)
 		(effects
@@ -3682,7 +3682,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0bdb01d2-214c-4412-9cb3-0d6a43098713")
-		(property "Reference" "#FLG5303"
+		(property "Reference" "#FLG02"
 			(at 88.9 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -3743,7 +3743,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#FLG5303")
+					(reference "#FLG02")
 					(unit 1)
 				)
 			)
@@ -3761,7 +3761,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0cc7d2e1-ceaa-488a-a607-d341f3ed9a09")
-		(property "Reference" "J1"
+		(property "Reference" "J7"
 			(at 69.86 54.99 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3867,7 +3867,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "J1")
+					(reference "J7")
 					(unit 1)
 				)
 			)
@@ -3884,7 +3884,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1875b59f-b94e-4997-a770-9568c83d8dfa")
-		(property "Reference" "#PWR5304"
+		(property "Reference" "#PWR051"
 			(at 205.74 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -3945,7 +3945,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#PWR5304")
+					(reference "#PWR051")
 					(unit 1)
 				)
 			)
@@ -3962,7 +3962,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1c0be796-0227-4622-ba91-a831f27c5fb6")
-		(property "Reference" "F1"
+		(property "Reference" "F2"
 			(at 95.25 55.49 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4112,7 +4112,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "F1")
+					(reference "F2")
 					(unit 1)
 				)
 			)
@@ -4254,7 +4254,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2c862afa-0faf-4ec2-a22c-e391a89518bf")
-		(property "Reference" "#PWR5305"
+		(property "Reference" "#PWR052"
 			(at 215.9 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -4315,7 +4315,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#PWR5305")
+					(reference "#PWR052")
 					(unit 1)
 				)
 			)
@@ -4455,7 +4455,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "418cd8bf-b555-4cab-926e-9a895cccd909")
-		(property "Reference" "C110"
+		(property "Reference" "C18"
 			(at 208.37 62.5 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4585,7 +4585,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "C110")
+					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -4602,7 +4602,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5a0070af-4924-4dd4-8bfc-3b059bd24b51")
-		(property "Reference" "C105"
+		(property "Reference" "C13"
 			(at 165.446 62.5 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4732,7 +4732,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "C105")
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -4749,7 +4749,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6241a36d-0dd4-4cd8-be7e-83cf73203359")
-		(property "Reference" "Q8"
+		(property "Reference" "Q1"
 			(at 121.92 53.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4876,7 +4876,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "Q8")
+					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -4893,7 +4893,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6b08a788-e38a-49be-887b-04b6f2bd5fc3")
-		(property "Reference" "C108"
+		(property "Reference" "C16"
 			(at 193.13 62.5 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5023,7 +5023,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "C108")
+					(reference "C16")
 					(unit 1)
 				)
 			)
@@ -5040,7 +5040,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7200ba9b-63a2-44f3-9159-f6d867432139")
-		(property "Reference" "R122"
+		(property "Reference" "R15"
 			(at 217.516 62.5 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5170,7 +5170,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "R122")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -5187,7 +5187,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7f4dd2c3-e5e1-4aea-a98a-33156cf6b824")
-		(property "Reference" "#PWR5302"
+		(property "Reference" "#PWR049"
 			(at 96.52 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -5248,7 +5248,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#PWR5302")
+					(reference "#PWR049")
 					(unit 1)
 				)
 			)
@@ -5265,7 +5265,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "8cfee698-5fdf-46d4-9cb5-6d31574f6a02")
-		(property "Reference" "TP68"
+		(property "Reference" "TP13"
 			(at 108.204 63.754 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5326,7 +5326,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "TP68")
+					(reference "TP13")
 					(unit 1)
 				)
 			)
@@ -5343,7 +5343,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8d40a354-5a38-406d-8697-bd0d488b0065")
-		(property "Reference" "D31"
+		(property "Reference" "D2"
 			(at 152.654 63.77 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5451,7 +5451,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "D31")
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -5469,7 +5469,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "90faa09e-7bc4-466e-ba55-514fff86e90f")
-		(property "Reference" "Q9"
+		(property "Reference" "Q2"
 			(at 142.24 53.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5596,7 +5596,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "Q9")
+					(reference "Q2")
 					(unit 1)
 				)
 			)
@@ -5613,7 +5613,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "92c8ff7d-7f97-4f98-9b46-df47b304567c")
-		(property "Reference" "C109"
+		(property "Reference" "C17"
 			(at 200.75 62.5 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5743,7 +5743,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "C109")
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -5760,7 +5760,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "99b88fd8-c2f9-4745-b8d2-e25587d63004")
-		(property "Reference" "C107"
+		(property "Reference" "C15"
 			(at 185.51 62.5 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5890,7 +5890,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "C107")
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -5907,7 +5907,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9f99f85f-5e15-424c-b55e-2440e5059d20")
-		(property "Reference" "TP24"
+		(property "Reference" "TP14"
 			(at 219.74 48.19 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6013,7 +6013,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "TP24")
+					(reference "TP14")
 					(unit 1)
 				)
 			)
@@ -6030,7 +6030,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "aa8f6b3a-db5b-4135-91d9-f978c7e92070")
-		(property "Reference" "#FLG5301"
+		(property "Reference" "#FLG03"
 			(at 231.14 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -6090,7 +6090,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#FLG5301")
+					(reference "#FLG03")
 					(unit 1)
 				)
 			)
@@ -6107,7 +6107,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "abdb276a-d523-477f-80b3-9bbe147c85bd")
-		(property "Reference" "R136"
+		(property "Reference" "R14"
 			(at 133.696 62.5 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6237,7 +6237,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "R136")
+					(reference "R14")
 					(unit 1)
 				)
 			)
@@ -6254,7 +6254,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e72de81a-2d72-4f1b-a736-67b7df57b14d")
-		(property "Reference" "C106"
+		(property "Reference" "C14"
 			(at 175.606 62.5 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6384,7 +6384,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "C106")
+					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -6401,7 +6401,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f4caf071-e716-4a4f-a10b-e468f31c7842")
-		(property "Reference" "TP49"
+		(property "Reference" "TP12"
 			(at 84.06 78.89 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6506,7 +6506,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "TP49")
+					(reference "TP12")
 					(unit 1)
 				)
 			)
@@ -6523,7 +6523,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fb274afa-e662-4162-846d-647a4e0f56c9")
-		(property "Reference" "#PWR5306"
+		(property "Reference" "#PWR050"
 			(at 154.94 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -6584,7 +6584,7 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#PWR5306")
+					(reference "#PWR050")
 					(unit 1)
 				)
 			)
