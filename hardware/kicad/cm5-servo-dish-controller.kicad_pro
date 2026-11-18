@@ -841,20 +841,8 @@
         "pattern": "/power-input/V_IN_P"
       },
       {
-        "netclass": "V_IN",
-        "pattern": "/power_5v/V_IN"
-      },
-      {
         "netclass": "PWR_3A",
         "pattern": "/5V"
-      },
-      {
-        "netclass": "PWR_3A",
-        "pattern": "/power_5v/SW"
-      },
-      {
-        "netclass": "PWR_3A",
-        "pattern": "/power_5v/CS"
       },
       {
         "netclass": "VBUS",
@@ -1041,10 +1029,6 @@
     [
       "59179e28-57e7-4020-bfeb-9df0a9a28165",
       "GPS"
-    ],
-    [
-      "2b73156f-617f-4ddb-9603-19922a26015d",
-      "power_5v"
     ],
     [
       "8f0e5a52-6c1b-4c0e-9d57-2b7c1e4a9d10",

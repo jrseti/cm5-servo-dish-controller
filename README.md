@@ -7,8 +7,9 @@ The board is derived from
 [roboclaw-cm4-dc-dish-controller](https://github.com/jrseti/roboclaw-cm4-dc-dish-controller).
 The RoboClaw motor controller is replaced by an STM32G474RET6, which is the CANopen
 master for external servo drives (such as the DSY-400C) and runs the position and
-velocity loop. The board runs from 48 V DC, uses a CM5 in place of the CM4, and has
-two USB 3.0 ports.
+velocity loop. The board runs from 5 V DC, supplied by an external Mean Well
+DDR-60L-5 converter that isolates it from the 48 V battery. It uses a CM5 in place
+of the CM4, and has two USB 3.0 ports.
 
 **Schematic:** [hardware/kicad/cm5-servo-dish-controller.pdf](hardware/kicad/cm5-servo-dish-controller.pdf)
 

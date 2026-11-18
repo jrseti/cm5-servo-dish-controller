@@ -1162,7 +1162,7 @@
 		)
 		(uuid "089f0626-adc3-4f83-960b-f289f3b7d1ce")
 	)
-	(text "GND: single board ground. J1 pin 2 (48 V\nreturn) is GND. No motor current flows\non this board, so there is no separate\npower ground. The CAN bus side has its\nown isolated ground (CAN_GND, CAN sheet)."
+	(text "GND: single board ground. J1 pin 2 (5 V\nreturn) is GND. The DDR-60L-5 isolates it\nfrom the 48 V battery. No motor current\nflows on this board, so there is no\nseparate power ground. The CAN bus side has its\nown isolated ground (CAN_GND, CAN sheet)."
 		(exclude_from_sim no)
 		(at 33.02 150 0)
 		(effects
@@ -1206,17 +1206,6 @@
 		)
 		(uuid "6cf1a1eb-0278-4bed-8ea7-c093b259d92d")
 	)
-	(text "48 V to 5 V, 5 A buck"
-		(exclude_from_sim no)
-		(at 74.46 53.2 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "75dde770-96db-4fd8-8ba5-4488f961fffc")
-	)
 	(text "Pi CM5 Module + IO"
 		(exclude_from_sim no)
 		(at 198.92 76.06 0)
@@ -1239,7 +1228,18 @@
 		)
 		(uuid "a71bddb7-cf07-4ee3-a983-2b6d5d94dbea")
 	)
-	(text "Derived from the roboclaw-cm4-dc-dish-controller board. Changes:\n- RoboClaw and all motor, encoder and limit-switch circuitry removed. No motor power on this board.\n- STM32G474RET6 in its place: CANopen master for the servo drives (e.g. DSY-400C) on one isolated CAN bus.\n  It closes the position / velocity loop over CAN and talks to the CM5 over a UART.\n- 48 V DC input (was 12 V battery): new input protection and a 100 V rated 48 V to 5 V buck.\n- CM5 replaces the CM4. Its two USB 3.0 ports go to a stacked USB 3.0 Type-A connector (the USB 2.0 hub is gone).\nSchematic only so far: no PCB layout. The power stage has not been simulated."
+	(text "48 V battery -> Mean Well DDR-60L-5 (external,\nisolated DIN-rail converter) -> 5 V -> J1"
+		(exclude_from_sim no)
+		(at 60.96 69.85 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a8d24958-4166-481e-9908-4953ffbf416f")
+	)
+	(text "Derived from the roboclaw-cm4-dc-dish-controller board. Changes:\n- RoboClaw and all motor, encoder and limit-switch circuitry removed. No motor power on this board.\n- STM32G474RET6 in its place: CANopen master for the servo drives (e.g. DSY-400C) on one isolated CAN bus.\n  It closes the position / velocity loop over CAN and talks to the CM5 over a UART.\n- 5 V DC input from an external Mean Well DDR-60L-5 isolated converter on the 48 V battery (was 12 V battery and an on-board buck).\n- CM5 replaces the CM4. Its two USB 3.0 ports go to a stacked USB 3.0 Type-A connector (the USB 2.0 hub is gone).\nSchematic only so far: no PCB layout."
 		(exclude_from_sim no)
 		(at 171 150 0)
 		(effects
@@ -1261,9 +1261,9 @@
 		)
 		(uuid "bc584126-b584-4426-9bc8-7192cbb9985b")
 	)
-	(text "48 V input, fuse,\nreverse / surge protection"
+	(text "5 V input, fuse, reverse\npolarity, on/off switch"
 		(exclude_from_sim no)
-		(at 26.2 53.2 0)
+		(at 61.76 50.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1350,16 +1350,6 @@
 			(type default)
 		)
 		(uuid "28ef091f-de3a-4d93-ae4d-8e629e3da7ba")
-	)
-	(wire
-		(pts
-			(xy 106.68 57.15) (xy 111.76 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "29608319-6202-434a-ac54-ab43e9d6559b")
 	)
 	(wire
 		(pts
@@ -1483,6 +1473,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 54.61) (xy 99.06 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8fb3b664-75b9-4d61-b3fb-36198a9263a8")
+	)
+	(wire
+		(pts
 			(xy 165.1 52.07) (xy 190.5 52.07)
 		)
 		(stroke
@@ -1490,16 +1490,6 @@
 			(type default)
 		)
 		(uuid "9d149300-4672-4559-835f-b53613680f35")
-	)
-	(wire
-		(pts
-			(xy 58.42 57.15) (xy 73.66 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a05f8d89-6922-40dc-bccb-32792189ef4a")
 	)
 	(wire
 		(pts
@@ -1692,14 +1682,14 @@
 		(uuid "8902ae72-9fdb-429f-acbf-5ac2adaf086c")
 	)
 	(label "5V"
-		(at 111.76 57.15 0)
+		(at 99.06 54.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "f47846ee-5ec7-45b3-829d-123d2816471e")
+		(uuid "c88097e3-df28-47f8-b79f-ef3af94eda3d")
 	)
 	(symbol
 		(lib_id "Connector:TestPoint_Small")
@@ -3049,72 +3039,6 @@
 		)
 	)
 	(sheet
-		(at 73.66 50.8)
-		(size 33.02 12.7)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0)
-		)
-		(uuid "2b73156f-617f-4ddb-9603-19922a26015d")
-		(property "Sheetname" "power_5v"
-			(at 73.66 50.0884 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "power_5v.kicad_sch"
-			(at 73.66 64.0846 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "V_IN" input
-			(at 73.66 57.15 180)
-			(uuid "281a8787-1ea5-4a40-b54c-66cc2974720d")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "5V" output
-			(at 106.68 57.15 0)
-			(uuid "1aeca9fc-2f73-4e6b-bde5-2e1f239fed58")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(instances
-			(project "cm5-servo-dish-controller"
-				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(page "8")
-				)
-			)
-		)
-	)
-	(sheet
 		(at 198.12 73.66)
 		(size 38.1 33.02)
 		(exclude_from_sim no)
@@ -3447,13 +3371,13 @@
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(page "9")
+					(page "8")
 				)
 			)
 		)
 	)
 	(sheet
-		(at 25.4 50.8)
+		(at 60.96 48.26)
 		(size 33.02 12.7)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3469,7 +3393,7 @@
 		)
 		(uuid "f33f7058-fe78-4de3-afa6-be46a5f18f95")
 		(property "Sheetname" "power-input"
-			(at 25.4 50.0884 0)
+			(at 60.96 47.5484 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3480,7 +3404,7 @@
 			)
 		)
 		(property "Sheetfile" "power-input.kicad_sch"
-			(at 25.4 64.0846 0)
+			(at 60.96 61.5446 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3490,8 +3414,8 @@
 				(justify left top)
 			)
 		)
-		(pin "V_IN" output
-			(at 58.42 57.15 0)
+		(pin "5V" output
+			(at 93.98 54.61 0)
 			(uuid "88074b70-655a-4949-a0f7-ac9089d95f35")
 			(effects
 				(font
