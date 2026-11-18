@@ -1609,7 +1609,7 @@
 					)
 				)
 			)
-			(property "Value" "ACT45B-510-2P"
+			(property "Value" "51uH"
 				(at 0 -10.16 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -11870,7 +11870,7 @@
 				)
 			)
 		)
-		(property "Value" "2.8k@10MHz"
+		(property "Value" "51uH"
 			(at 165.1 59.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11880,7 +11880,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyPartsIPC:TDK_ACT45B"
+		(property "Footprint" "MyParts:IND-SMD_4P-L4.5-W3.2-TL"
 			(at 165.1 50.8 0)
 			(hide yes)
 			(show_name no)

@@ -6563,7 +6563,7 @@
 		)
 		(uuid "7081c02f-1dcb-41cd-924d-d8c96b790b6a")
 	)
-	(text "Antenna bias from 5V, not VCC_RF: the Waveshare L1/L2/L5 antenna\nneeds 3.0-18 V at <=45 mA over 5 m RG174; VCC_RF (VCC-0.1 V,\n50 mA max) cannot hold 3.0 V through any short-circuit resistor.\nR40 33R 1W limits a short to ~155 mA (L1 350 mA). C38 filters\nsupply ripple. D14 4.7 V keeps RF_IN < 5.5 V DC abs max (antenna\nunplugged). Worst-case antenna voltage ~3.3 V at 45 mA."
+	(text "Antenna bias from 5V, not VCC_RF: the Waveshare GNSS antenna\n(L1/L2/L5 bands) needs 3.0-18 V at <=45 mA over 5 m RG174;\nVCC_RF (VCC-0.1 V, 50 mA max) cannot hold 3.0 V through any\nshort-circuit resistor. R40 33R 1W limits a short to ~155 mA\n(inductor L1 is rated 350 mA). C38 filters supply ripple.\nD14 4.7 V keeps RF_IN < 5.5 V DC abs max (antenna unplugged).\nWorst-case antenna voltage ~3.3 V at 45 mA."
 		(exclude_from_sim no)
 		(at 144.78 153.67 0)
 		(effects
