@@ -265,7 +265,7 @@
       "internal_id": "",
       "mfg": "",
       "mpn": "",
-      "sch_revision": ""
+      "sch_revision": "0.1"
     },
     "layer_pairs": [],
     "layer_presets": [],
@@ -669,6 +669,72 @@
     },
     "net_colors": null,
     "netclass_assignments": {
+      "/CM5/EP0+": [
+        "ETH_100_OHM"
+      ],
+      "/CM5/EP0-": [
+        "ETH_100_OHM"
+      ],
+      "/CM5/EP1+": [
+        "ETH_100_OHM"
+      ],
+      "/CM5/EP1-": [
+        "ETH_100_OHM"
+      ],
+      "/CM5/EP2+": [
+        "ETH_100_OHM"
+      ],
+      "/CM5/EP2-": [
+        "ETH_100_OHM"
+      ],
+      "/CM5/EP3+": [
+        "ETH_100_OHM"
+      ],
+      "/CM5/EP3-": [
+        "ETH_100_OHM"
+      ],
+      "/CM5/USB2_N": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB2_P": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_0_D_N": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_0_D_P": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_0_RX_N": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_0_RX_P": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_0_TX_N": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_0_TX_P": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_1_D_N": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_1_D_P": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_1_RX_N": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_1_RX_P": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_1_TX_N": [
+        "USB_90_OHM"
+      ],
+      "/CM5/USB3_1_TX_P": [
+        "USB_90_OHM"
+      ],
       "/CM5/usb/usb2/VBUS_USBC": [
         "VBUS"
       ]
@@ -939,12 +1005,12 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "cm4-robo-controller.kicad_sch",
-        "name": "cm4-robo-controller",
+        "filename": "cm5-servo-dish-controller.kicad_sch",
+        "name": "cm5-servo-dish-controller",
         "uuid": "c1285fbe-5f56-49a8-9041-410713cbe619"
       }
     ],
-    "used_designators": "TP34-36",
+    "used_designators": "TP34-36,TP63-64,TP66-67",
     "variants": []
   },
   "sheets": [

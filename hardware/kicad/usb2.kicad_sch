@@ -2341,6 +2341,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 39.37) (xy 86.36 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20bfd40a-2c45-4331-9216-9767de5e2e66")
+	)
+	(wire
+		(pts
 			(xy 58.42 72.39) (xy 58.42 77.47)
 		)
 		(stroke
@@ -2398,6 +2408,16 @@
 			(type default)
 		)
 		(uuid "48547529-d1e8-4592-a2ee-61892745d416")
+	)
+	(wire
+		(pts
+			(xy 57.15 46.99) (xy 57.15 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5190a368-1c16-42c3-875c-9af57a1a734e")
 	)
 	(wire
 		(pts
@@ -2591,6 +2611,16 @@
 	)
 	(wire
 		(pts
+			(xy 86.36 39.37) (xy 86.36 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cba8e42b-bd99-45f9-becc-62406d5f3a6b")
+	)
+	(wire
+		(pts
 			(xy 52.07 77.47) (xy 58.42 77.47)
 		)
 		(stroke
@@ -2639,35 +2669,37 @@
 		)
 		(uuid "fcbb42d4-ffcb-4be7-b232-17fb740505a5")
 	)
-	(wire
-		(pts
-			(xy 57.15 46.99) (xy 57.15 39.37)
+	(label "VBUS_USBC"
+		(at 57.15 50.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
 		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5190a368-1c16-42c3-875c-9af57a1a734e")
+		(uuid "acdc50ad-79db-41fd-80f4-43b654991ffb")
 	)
-	(wire
-		(pts
-			(xy 57.15 39.37) (xy 86.36 39.37)
+	(hierarchical_label "HSD2+"
+		(shape bidirectional)
+		(at 53.34 62.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
 		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "20bfd40a-2c45-4331-9216-9767de5e2e66")
+		(uuid "9d402059-3d45-46b9-aeea-74bfb1b5145e")
 	)
-	(wire
-		(pts
-			(xy 86.36 39.37) (xy 86.36 46.99)
+	(hierarchical_label "HSD2-"
+		(shape bidirectional)
+		(at 53.34 54.61 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
 		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cba8e42b-bd99-45f9-becc-62406d5f3a6b")
+		(uuid "e9b45916-b931-4672-8a19-2a5e8caeefcd")
 	)
 	(netclass_flag ""
 		(length 2.54)
@@ -2728,38 +2760,6 @@
 				(justify right)
 			)
 		)
-	)
-	(label "VBUS_USBC"
-		(at 57.15 50.8 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "acdc50ad-79db-41fd-80f4-43b654991ffb")
-	)
-	(hierarchical_label "HSD2+"
-		(shape bidirectional)
-		(at 53.34 62.23 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "9d402059-3d45-46b9-aeea-74bfb1b5145e")
-	)
-	(hierarchical_label "HSD2-"
-		(shape bidirectional)
-		(at 53.34 54.61 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "e9b45916-b931-4672-8a19-2a5e8caeefcd")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -3119,7 +3119,7 @@
 				)
 			)
 		)
-		(property "Description" "Test Point"
+		(property "Description" "test point"
 			(at 55.118 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -3173,7 +3173,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:USB-C_SMD-TYPE-C-31-M-12_1"
+		(property "Footprint" "MyPartsIPC:HRO_TYPE-C-31-M-12"
 			(at 67.31 80.01 0)
 			(hide yes)
 			(show_name no)

@@ -1050,6 +1050,9 @@
 			(embedded_fonts no)
 		)
 		(symbol "MyParts:SMD0603-010-24V"
+			(pin_numbers
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -4671,7 +4674,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${MYPARTS_DATASHEETS}/0402WGF220JTCE.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311900_UNI-ROYAL-Uniroyal-Elec-0402WGF220JTCE_C25092.pdf"
 			(at 118.11 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -4781,7 +4784,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 118.11 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -4893,6 +4896,17 @@
 		)
 		(property "Pkg Type" "SMD 0402"
 			(at 118.11 115.57 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25092"
+			(at 118.11 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5555,7 +5569,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "SAMSUNG"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 125.73 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -5611,6 +5625,17 @@
 			)
 		)
 		(property "Temperature Coefficient" "X5R"
+			(at 125.73 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C19702"
 			(at 125.73 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -5678,7 +5703,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${MYPARTS_DATASHEETS}/0402WGF220JTCE.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311900_UNI-ROYAL-Uniroyal-Elec-0402WGF220JTCE_C25092.pdf"
 			(at 118.11 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -5810,7 +5835,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 118.11 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -5909,6 +5934,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C25092"
+			(at 118.11 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "f3cc856b-9fe4-4d40-b1ce-94f864b10275")
 		)
@@ -5968,7 +6004,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${MYPARTS_DATASHEETS}/CL05B104KO5NNNC.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
 			(at 162.56 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -6100,7 +6136,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "SAMSUNG"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 162.56 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -6156,6 +6192,17 @@
 			)
 		)
 		(property "Temperature Coefficient" "X7R"
+			(at 162.56 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
 			(at 162.56 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -6625,7 +6672,7 @@
 				)
 			)
 		)
-		(property "Description" "Test Point"
+		(property "Description" "test point"
 			(at 156.718 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -6690,7 +6737,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${MYPARTS_DATASHEETS}/0402WGF1002TCE.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2411221126_UNI-ROYAL-Uniroyal-Elec-0402WGF1002TCE_C25744.pdf"
 			(at 80.01 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -6822,7 +6869,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL"
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 80.01 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -6911,6 +6958,17 @@
 			)
 		)
 		(property "Temperature Coefficient" "±100ppm/°C"
+			(at 80.01 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 80.01 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -7112,7 +7170,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "SAMSUNG"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 158.75 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -7168,6 +7226,17 @@
 			)
 		)
 		(property "Temperature Coefficient" "X5R"
+			(at 158.75 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23733"
 			(at 158.75 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -7237,7 +7306,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${MYPARTS_DATASHEETS}/CL05B104KO5NNNC.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf"
 			(at 116.84 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -7369,7 +7438,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "SAMSUNG"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 116.84 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -7425,6 +7494,17 @@
 			)
 		)
 		(property "Temperature Coefficient" "X7R"
+			(at 116.84 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
 			(at 116.84 63.5 0)
 			(hide yes)
 			(show_name no)

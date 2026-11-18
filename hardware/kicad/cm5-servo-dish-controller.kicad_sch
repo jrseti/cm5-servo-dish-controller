@@ -1162,39 +1162,6 @@
 		)
 		(uuid "089f0626-adc3-4f83-960b-f289f3b7d1ce")
 	)
-	(text "H1/H2/H3/H4: M3 plated mounting holes\non CHASSIS. Bond to the metal enclosure\nor dish frame.\nH7: M2.5 hole, no copper, for the standoff\nof a J4 HAT board (M2.5 x 11 mm)."
-		(exclude_from_sim no)
-		(at 114.3 168.91 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3dbbbecf-78b9-4304-a3c7-63acf4c8de87")
-	)
-	(text "R2/C1: CHASSIS-GND static bleed (R2) and HF\nbond (C1, keep 2 kV). Connector shields (RJ45,\nUSB, CAN) and the Ethernet termination (P10)\ngo to CHASSIS. Installed, GND is also bonded\nto the box at the J2 antenna arrestor, so R2\nis bypassed at DC."
-		(exclude_from_sim no)
-		(at 76.2 186.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a71bddb7-cf07-4ee3-a983-2b6d5d94dbea")
-	)
-	(text "Grounding"
-		(exclude_from_sim no)
-		(at 31.75 140.97 0)
-		(effects
-			(font
-				(size 2.032 2.032)
-			)
-			(justify left bottom)
-		)
-		(uuid "f1a92286-9a36-4093-87e8-80be7e87f955")
-	)
 	(text "GND: single board ground. J1 pin 2 (48 V\nreturn) is GND. No motor current flows\non this board, so there is no separate\npower ground. The CAN bus side has its\nown isolated ground (CAN_GND, CAN sheet)."
 		(exclude_from_sim no)
 		(at 33.02 150 0)
@@ -1205,39 +1172,6 @@
 			(justify left top)
 		)
 		(uuid "120190f1-7e51-4ae3-bd17-292a4bb8a6f3")
-	)
-	(text "Raspberry Pi CM5 + STM32 CANopen\nServo Dish Controller"
-		(exclude_from_sim no)
-		(at 17.272 17 0)
-		(effects
-			(font
-				(size 5 5)
-			)
-			(justify left top)
-		)
-		(uuid "6cf1a1eb-0278-4bed-8ea7-c093b259d92d")
-	)
-	(text "48 V input, fuse,\nreverse / surge protection"
-		(exclude_from_sim no)
-		(at 26.2 53.2 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "eb10aa21-cd4c-4a20-a3cf-eb4929cefa7a")
-	)
-	(text "48 V to 5 V, 5 A buck"
-		(exclude_from_sim no)
-		(at 74.46 53.2 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "75dde770-96db-4fd8-8ba5-4488f961fffc")
 	)
 	(text "STM32G474 CANopen master\n+ isolated CAN"
 		(exclude_from_sim no)
@@ -1250,6 +1184,39 @@
 		)
 		(uuid "3c8adaf1-b8c7-4e86-a60b-67ae3b5d14c4")
 	)
+	(text "H1/H2/H3/H4: M3 plated mounting holes\non CHASSIS. Bond to the metal enclosure\nor dish frame.\nH7: M2.5 hole, no copper, for the standoff\nof a J4 HAT board (M2.5 x 11 mm)."
+		(exclude_from_sim no)
+		(at 114.3 168.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3dbbbecf-78b9-4304-a3c7-63acf4c8de87")
+	)
+	(text "Raspberry Pi CM5 + STM32 CANopen\nServo Dish Controller"
+		(exclude_from_sim no)
+		(at 17.272 17 0)
+		(effects
+			(font
+				(size 5 5)
+			)
+			(justify left top)
+		)
+		(uuid "6cf1a1eb-0278-4bed-8ea7-c093b259d92d")
+	)
+	(text "48 V to 5 V, 5 A buck"
+		(exclude_from_sim no)
+		(at 74.46 53.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "75dde770-96db-4fd8-8ba5-4488f961fffc")
+	)
 	(text "Pi CM5 Module + IO"
 		(exclude_from_sim no)
 		(at 198.92 76.06 0)
@@ -1260,6 +1227,28 @@
 			(justify left)
 		)
 		(uuid "76d87bea-069f-4001-817c-9adf6256149a")
+	)
+	(text "R2/C1: CHASSIS-GND static bleed (R2) and HF\nbond (C1, keep 2 kV). Connector shields (RJ45,\nUSB, CAN) and the Ethernet termination (P10)\ngo to CHASSIS. Installed, GND is also bonded\nto the box at the J2 antenna arrestor, so R2\nis bypassed at DC."
+		(exclude_from_sim no)
+		(at 76.2 186.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a71bddb7-cf07-4ee3-a983-2b6d5d94dbea")
+	)
+	(text "Derived from the roboclaw-cm4-dc-dish-controller board. Changes:\n- RoboClaw and all motor, encoder and limit-switch circuitry removed. No motor power on this board.\n- STM32G474RET6 in its place: CANopen master for the servo drives (e.g. DSY-400C) on one isolated CAN bus.\n  It closes the position / velocity loop over CAN and talks to the CM5 over a UART.\n- 48 V DC input (was 12 V battery): new input protection and a 100 V rated 48 V to 5 V buck.\n- CM5 replaces the CM4. Its two USB 3.0 ports go to a stacked USB 3.0 Type-A connector (the USB 2.0 hub is gone).\nSchematic only so far: no PCB layout. The power stage has not been simulated."
+		(exclude_from_sim no)
+		(at 171 150 0)
+		(effects
+			(font
+				(size 1.016 1.016)
+			)
+			(justify left top)
+		)
+		(uuid "b6c685df-3c76-42f5-b2a2-b632b52a7131")
 	)
 	(text "GPS 1PPS and NMEA"
 		(exclude_from_sim no)
@@ -1272,16 +1261,27 @@
 		)
 		(uuid "bc584126-b584-4426-9bc8-7192cbb9985b")
 	)
-	(text "Derived from the roboclaw-cm4-dc-dish-controller board. Changes:\n- RoboClaw and all motor, encoder and limit-switch circuitry removed. No motor power on this board.\n- STM32G474RET6 in its place: CANopen master for the servo drives (e.g. DSY-400C) on one isolated CAN bus.\n  It closes the position / velocity loop over CAN and talks to the CM5 over a UART.\n- 48 V DC input (was 12 V battery): new input protection and a 100 V rated 48 V to 5 V buck.\n- CM5 replaces the CM4. Its two USB 3.0 ports go to a stacked USB 3.0 Type-A connector (the USB 2.0 hub is gone).\nSchematic only so far: no PCB layout. The power stage has not been simulated."
+	(text "48 V input, fuse,\nreverse / surge protection"
 		(exclude_from_sim no)
-		(at 171 150 0)
+		(at 26.2 53.2 0)
 		(effects
 			(font
-				(size 1.016 1.016)
+				(size 1.27 1.27)
 			)
-			(justify left top)
+			(justify left)
 		)
-		(uuid "b6c685df-3c76-42f5-b2a2-b632b52a7131")
+		(uuid "eb10aa21-cd4c-4a20-a3cf-eb4929cefa7a")
+	)
+	(text "Grounding"
+		(exclude_from_sim no)
+		(at 31.75 140.97 0)
+		(effects
+			(font
+				(size 2.032 2.032)
+			)
+			(justify left bottom)
+		)
+		(uuid "f1a92286-9a36-4093-87e8-80be7e87f955")
 	)
 	(junction
 		(at 83.82 153.67)
@@ -1323,6 +1323,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 86.36) (xy 198.12 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1efb261e-4ba4-4d9f-a6d2-e61625909526")
+	)
+	(wire
+		(pts
 			(xy 96.52 153.67) (xy 99.06 153.67)
 		)
 		(stroke
@@ -1333,6 +1343,36 @@
 	)
 	(wire
 		(pts
+			(xy 165.1 99.06) (xy 198.12 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "28ef091f-de3a-4d93-ae4d-8e629e3da7ba")
+	)
+	(wire
+		(pts
+			(xy 106.68 57.15) (xy 111.76 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "29608319-6202-434a-ac54-ab43e9d6559b")
+	)
+	(wire
+		(pts
+			(xy 165.1 54.61) (xy 186.69 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2aa71f6b-bb9c-427b-b832-5bccc67c1ce4")
+	)
+	(wire
+		(pts
 			(xy 83.82 163.83) (xy 83.82 168.91)
 		)
 		(stroke
@@ -1340,6 +1380,36 @@
 			(type default)
 		)
 		(uuid "2aaf1726-b870-4490-8e6a-ba16a0b726f2")
+	)
+	(wire
+		(pts
+			(xy 186.69 54.61) (xy 186.69 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c462af1-b1eb-4cb7-a9fc-4f4058818d43")
+	)
+	(wire
+		(pts
+			(xy 127 101.6) (xy 129.54 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d08a15b-9bda-416c-a438-0903214c0403")
+	)
+	(wire
+		(pts
+			(xy 195.58 91.44) (xy 198.12 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d68733a-d1db-44e1-86f4-12f881484b6d")
 	)
 	(wire
 		(pts
@@ -1363,6 +1433,36 @@
 	)
 	(wire
 		(pts
+			(xy 190.5 52.07) (xy 190.5 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "650d7dba-2f4a-4af9-bc35-93c77948b6a4")
+	)
+	(wire
+		(pts
+			(xy 182.88 59.69) (xy 182.88 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6cc5269c-7408-47ac-8830-80c9fa07d82a")
+	)
+	(wire
+		(pts
+			(xy 195.58 93.98) (xy 198.12 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6fc6500e-6d66-4e31-b985-23ce7a5fbd96")
+	)
+	(wire
+		(pts
 			(xy 83.82 153.67) (xy 83.82 163.83)
 		)
 		(stroke
@@ -1370,6 +1470,46 @@
 			(type default)
 		)
 		(uuid "7f0c3683-2f98-411b-af0a-890cf0a1eb8f")
+	)
+	(wire
+		(pts
+			(xy 165.1 101.6) (xy 198.12 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ea115ef-0c22-4b3a-b6c4-de9f12ecc5ef")
+	)
+	(wire
+		(pts
+			(xy 165.1 52.07) (xy 190.5 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d149300-4672-4559-835f-b53613680f35")
+	)
+	(wire
+		(pts
+			(xy 58.42 57.15) (xy 73.66 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a05f8d89-6922-40dc-bccb-32792189ef4a")
+	)
+	(wire
+		(pts
+			(xy 127 106.68) (xy 129.54 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4e97245-c766-4747-b2c5-f4340c7e2a92")
 	)
 	(wire
 		(pts
@@ -1393,113 +1533,13 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 151.13) (xy 83.82 153.67)
+			(xy 165.1 104.14) (xy 198.12 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d8a39353-ed9c-4f4d-a416-4424038a6146")
-	)
-	(wire
-		(pts
-			(xy 58.42 57.15) (xy 73.66 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a05f8d89-6922-40dc-bccb-32792189ef4a")
-	)
-	(wire
-		(pts
-			(xy 106.68 57.15) (xy 111.76 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "29608319-6202-434a-ac54-ab43e9d6559b")
-	)
-	(wire
-		(pts
-			(xy 127 52.07) (xy 129.54 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fbfd03bc-7d2c-41b1-b844-f31dfc4a321e")
-	)
-	(wire
-		(pts
-			(xy 127 57.15) (xy 129.54 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "feef23bb-327f-4db2-9523-6da5b136fada")
-	)
-	(wire
-		(pts
-			(xy 127 101.6) (xy 129.54 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3d08a15b-9bda-416c-a438-0903214c0403")
-	)
-	(wire
-		(pts
-			(xy 127 106.68) (xy 129.54 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a4e97245-c766-4747-b2c5-f4340c7e2a92")
-	)
-	(wire
-		(pts
-			(xy 195.58 91.44) (xy 198.12 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3d68733a-d1db-44e1-86f4-12f881484b6d")
-	)
-	(wire
-		(pts
-			(xy 195.58 93.98) (xy 198.12 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6fc6500e-6d66-4e31-b985-23ce7a5fbd96")
-	)
-	(wire
-		(pts
-			(xy 165.1 52.07) (xy 190.5 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9d149300-4672-4559-835f-b53613680f35")
-	)
-	(wire
-		(pts
-			(xy 190.5 52.07) (xy 190.5 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "650d7dba-2f4a-4af9-bc35-93c77948b6a4")
+		(uuid "bc62bcc9-dd23-4395-bd23-6148e15dfd7c")
 	)
 	(wire
 		(pts
@@ -1513,53 +1553,23 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 54.61) (xy 186.69 54.61)
+			(xy 179.07 62.23) (xy 179.07 86.36)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2aa71f6b-bb9c-427b-b832-5bccc67c1ce4")
+		(uuid "d5544e2c-24b3-4fc5-924b-682d89a9cbc1")
 	)
 	(wire
 		(pts
-			(xy 186.69 54.61) (xy 186.69 81.28)
+			(xy 83.82 151.13) (xy 83.82 153.67)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3c462af1-b1eb-4cb7-a9fc-4f4058818d43")
-	)
-	(wire
-		(pts
-			(xy 186.69 81.28) (xy 198.12 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ff80cac3-fbd8-46af-8e71-071c2e3b3b62")
-	)
-	(wire
-		(pts
-			(xy 165.1 59.69) (xy 182.88 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fe1db6b3-372b-43de-ae8a-0f70d62f45f8")
-	)
-	(wire
-		(pts
-			(xy 182.88 59.69) (xy 182.88 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6cc5269c-7408-47ac-8830-80c9fa07d82a")
+		(uuid "d8a39353-ed9c-4f4d-a416-4424038a6146")
 	)
 	(wire
 		(pts
@@ -1583,83 +1593,43 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 62.23) (xy 179.07 86.36)
+			(xy 127 52.07) (xy 129.54 52.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d5544e2c-24b3-4fc5-924b-682d89a9cbc1")
+		(uuid "fbfd03bc-7d2c-41b1-b844-f31dfc4a321e")
 	)
 	(wire
 		(pts
-			(xy 179.07 86.36) (xy 198.12 86.36)
+			(xy 165.1 59.69) (xy 182.88 59.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1efb261e-4ba4-4d9f-a6d2-e61625909526")
+		(uuid "fe1db6b3-372b-43de-ae8a-0f70d62f45f8")
 	)
 	(wire
 		(pts
-			(xy 165.1 99.06) (xy 198.12 99.06)
+			(xy 127 57.15) (xy 129.54 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "28ef091f-de3a-4d93-ae4d-8e629e3da7ba")
+		(uuid "feef23bb-327f-4db2-9523-6da5b136fada")
 	)
 	(wire
 		(pts
-			(xy 165.1 101.6) (xy 198.12 101.6)
+			(xy 186.69 81.28) (xy 198.12 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8ea115ef-0c22-4b3a-b6c4-de9f12ecc5ef")
-	)
-	(wire
-		(pts
-			(xy 165.1 104.14) (xy 198.12 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc62bcc9-dd23-4395-bd23-6148e15dfd7c")
-	)
-	(label "5V"
-		(at 111.76 57.15 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f47846ee-5ec7-45b3-829d-123d2816471e")
-	)
-	(label "5V"
-		(at 127 52.07 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "79aa792c-4a9d-4a39-afec-44a466020a03")
-	)
-	(label "3V3_CM5"
-		(at 127 57.15 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "594bbadf-271e-4333-928a-a33a52f074fc")
+		(uuid "ff80cac3-fbd8-46af-8e71-071c2e3b3b62")
 	)
 	(label "3V3_CM5"
 		(at 127 101.6 180)
@@ -1672,16 +1642,6 @@
 		(uuid "5659feaa-9aca-4863-85f1-f160c465e350")
 	)
 	(label "5V"
-		(at 127 106.68 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8902ae72-9fdb-429f-acbf-5ac2adaf086c")
-	)
-	(label "5V"
 		(at 195.58 91.44 180)
 		(effects
 			(font
@@ -1692,6 +1652,16 @@
 		(uuid "579a9e71-1ff1-4286-a494-8520b67cccb2")
 	)
 	(label "3V3_CM5"
+		(at 127 57.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "594bbadf-271e-4333-928a-a33a52f074fc")
+	)
+	(label "3V3_CM5"
 		(at 195.58 93.98 180)
 		(effects
 			(font
@@ -1700,6 +1670,36 @@
 			(justify right bottom)
 		)
 		(uuid "63747cb6-02dd-4e92-8595-2fb986be8f4c")
+	)
+	(label "5V"
+		(at 127 52.07 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "79aa792c-4a9d-4a39-afec-44a466020a03")
+	)
+	(label "5V"
+		(at 127 106.68 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8902ae72-9fdb-429f-acbf-5ac2adaf086c")
+	)
+	(label "5V"
+		(at 111.76 57.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f47846ee-5ec7-45b3-829d-123d2816471e")
 	)
 	(symbol
 		(lib_id "Connector:TestPoint_Small")
@@ -1755,7 +1755,7 @@
 				)
 			)
 		)
-		(property "Description" "Test Point"
+		(property "Description" "test point"
 			(at 81.788 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -3049,62 +3049,6 @@
 		)
 	)
 	(sheet
-		(at 25.4 50.8)
-		(size 33.02 12.7)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "f33f7058-fe78-4de3-afa6-be46a5f18f95")
-		(property "Sheetname" "power-input"
-			(at 25.4 50.0884 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "power-input.kicad_sch"
-			(at 25.4 64.0846 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "V_IN" output
-			(at 58.42 57.15 0)
-			(uuid "88074b70-655a-4949-a0f7-ac9089d95f35")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(instances
-			(project "cm5-servo-dish-controller"
-				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(page "6")
-				)
-			)
-		)
-	)
-	(sheet
 		(at 73.66 50.8)
 		(size 33.02 12.7)
 		(exclude_from_sim no)
@@ -3117,7 +3061,7 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "2b73156f-617f-4ddb-9603-19922a26015d")
 		(property "Sheetname" "power_5v"
@@ -3171,112 +3115,6 @@
 		)
 	)
 	(sheet
-		(at 129.54 44.45)
-		(size 35.56 25.4)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "8f0e5a52-6c1b-4c0e-9d57-2b7c1e4a9d10")
-		(property "Sheetname" "STM32"
-			(at 129.54 43.7384 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "stm32.kicad_sch"
-			(at 129.54 70.4346 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "5V" input
-			(at 129.54 52.07 180)
-			(uuid "68a29d09-b3f5-418d-adc0-8a4966dc78b0")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "3V3_CM5" input
-			(at 129.54 57.15 180)
-			(uuid "edcdc616-96aa-4aaf-bda9-61dffcf0f915")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "STM32_TX_MCU" input
-			(at 165.1 52.07 0)
-			(uuid "26ce1b47-5c16-46b1-977b-0f848bfe5b7b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "STM32_RX_MCU" output
-			(at 165.1 54.61 0)
-			(uuid "f58e1c10-097b-4ca1-8c2e-5ef259d80f21")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "MCU_RST" input
-			(at 165.1 59.69 0)
-			(uuid "f9d4f049-c301-41f3-8f97-da2651080d74")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "MCU_BOOT0" input
-			(at 165.1 62.23 0)
-			(uuid "fab74d74-1b93-4ccc-b5aa-3976be830add")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(instances
-			(project "cm5-servo-dish-controller"
-				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
-					(page "9")
-				)
-			)
-		)
-	)
-	(sheet
 		(at 198.12 73.66)
 		(size 38.1 33.02)
 		(exclude_from_sim no)
@@ -3289,7 +3127,7 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "3cc0f123-2315-4414-aa85-3a1a0bb694eb")
 		(property "Sheetname" "CM5"
@@ -3425,7 +3263,7 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "59179e28-57e7-4020-bfeb-9df0a9a28165")
 		(property "Sheetname" "GPS"
@@ -3504,6 +3342,168 @@
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
 					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 129.54 44.45)
+		(size 35.56 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "8f0e5a52-6c1b-4c0e-9d57-2b7c1e4a9d10")
+		(property "Sheetname" "STM32"
+			(at 129.54 43.7384 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "stm32.kicad_sch"
+			(at 129.54 70.4346 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" input
+			(at 129.54 52.07 180)
+			(uuid "68a29d09-b3f5-418d-adc0-8a4966dc78b0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "3V3_CM5" input
+			(at 129.54 57.15 180)
+			(uuid "edcdc616-96aa-4aaf-bda9-61dffcf0f915")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "STM32_TX_MCU" input
+			(at 165.1 52.07 0)
+			(uuid "26ce1b47-5c16-46b1-977b-0f848bfe5b7b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "STM32_RX_MCU" output
+			(at 165.1 54.61 0)
+			(uuid "f58e1c10-097b-4ca1-8c2e-5ef259d80f21")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MCU_RST" input
+			(at 165.1 59.69 0)
+			(uuid "f9d4f049-c301-41f3-8f97-da2651080d74")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MCU_BOOT0" input
+			(at 165.1 62.23 0)
+			(uuid "fab74d74-1b93-4ccc-b5aa-3976be830add")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "cm5-servo-dish-controller"
+				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 50.8)
+		(size 33.02 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f33f7058-fe78-4de3-afa6-be46a5f18f95")
+		(property "Sheetname" "power-input"
+			(at 25.4 50.0884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power-input.kicad_sch"
+			(at 25.4 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "V_IN" output
+			(at 58.42 57.15 0)
+			(uuid "88074b70-655a-4949-a0f7-ac9089d95f35")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "cm5-servo-dish-controller"
+				(path "/c1285fbe-5f56-49a8-9041-410713cbe619"
+					(page "6")
 				)
 			)
 		)

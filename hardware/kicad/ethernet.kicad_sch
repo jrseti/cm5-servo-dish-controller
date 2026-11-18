@@ -6211,7 +6211,7 @@
 				)
 			)
 		)
-		(property "Description" "Test Point"
+		(property "Description" "test point"
 			(at 152.908 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -6638,7 +6638,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:RJ45-TH_HR911130A"
+		(property "Footprint" "MyPartsIPC:HanRun_HR911130A"
 			(at 91.44 130.16 0)
 			(hide yes)
 			(show_name no)
@@ -6902,7 +6902,7 @@
 				)
 			)
 		)
-		(property "Description" "Test Point"
+		(property "Description" "test point"
 			(at 152.908 134.62 0)
 			(hide yes)
 			(show_name no)

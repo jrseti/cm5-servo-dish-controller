@@ -2546,12 +2546,6 @@
 			(embedded_fonts no)
 		)
 		(symbol "MyParts:BZT52C4V7"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -10110,7 +10104,7 @@
 		(dnp no)
 		(uuid "4dd28efb-fcc3-40ab-96b1-7102a80b60cc")
 		(property "Reference" "J2"
-			(at 181.61 115.5699 0)
+			(at 174.752 117.094 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10120,7 +10114,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "SMA-KWE_C7498154"
+		(property "Value" "SMA-KWE"
 			(at 171.704 121.666 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10131,7 +10125,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "MyParts:SMA-TH_SMA-KWE_C7498154"
+		(property "Footprint" "MyPartsIPC:LX_SMA-KWE"
 			(at 168.91 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -10422,7 +10416,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MyParts:ML414H-IV01E"
+		(property "Footprint" "MyPartsIPC:Seiko_ML414H-IV01E"
 			(at 156.21 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -10664,7 +10658,7 @@
 		(dnp no)
 		(uuid "6258b3d0-b826-4c00-8ebe-e0c7877eca92")
 		(property "Reference" "J7"
-			(at 210.82 71.12 90)
+			(at 217.424 91.44 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10674,7 +10668,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "SMA-KWE_C7498154"
+		(property "Value" "SMA-KWE"
 			(at 210.82 99.06 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10685,7 +10679,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "MyParts:SMA-TH_SMA-KWE_C7498154"
+		(property "Footprint" "MyPartsIPC:LX_SMA-KWE"
 			(at 218.44 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -11799,6 +11793,17 @@
 				)
 			)
 		)
+		(property "MPN_1" "BZT52C4V7"
+			(at 123.19 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5823eae9-e7d2-49f7-9b50-9ff7e607f9fc")
 		)
@@ -12550,7 +12555,7 @@
 				)
 			)
 		)
-		(property "Description" "Test Point"
+		(property "Description" "test point"
 			(at 152.908 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -13069,7 +13074,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "RH-5016"
+		(property "Value" "V_BCKP"
 			(at 184.15 76.1999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13080,7 +13085,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MyParts:TESTPOINT-SMD_L3.0-W2.0"
+		(property "Footprint" "MyPartsIPC:Ronghe_RH-5016"
 			(at 179.07 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -14882,7 +14887,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:SMD-18_L10.1-W9.7-P1.10-TL_SKG09F"
+		(property "Footprint" "MyPartsIPC:u-blox_MAX-M10S"
 			(at 107.95 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -15112,6 +15117,17 @@
 		)
 		(property "Pkg Type" "SMD 0402"
 			(at 231.14 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "TECH PUBLIC"
+			(at 241.3 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

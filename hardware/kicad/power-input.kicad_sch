@@ -11,7 +11,130 @@
 		(company "JRSeti")
 	)
 	(lib_symbols
-		(symbol "MyParts:BLM31KN121SN1L"
+		(symbol "Connector:TestPoint_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint_Small"
+				(at 0 2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TestPoint_Small_0_1"
+				(circle
+					(center 0 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_Small_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 0)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "MyParts:BLM31PG121SN1L"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -48,7 +171,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "${MYPARTS_DATASHEETS}/BLM31KN121SN1L.pdf"
+			(property "Datasheet" "${MYPARTS_DATASHEETS}/BLM31PG121SN1L.pdf"
 				(at 0 -10.16 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -59,7 +182,7 @@
 					)
 				)
 			)
-			(property "Description" "-55℃~+125℃ 1 120Ω@100MHz 6A 9mΩ ±25% 1206 Ferrite Beads ROHS"
+			(property "Description" "-55℃~+125℃ 120Ω@100MHz 3.5A 20mΩ ±25% 1206 Ferrite Beads ROHS"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -81,7 +204,7 @@
 					)
 				)
 			)
-			(property "MPN" "BLM31KN121SN1L"
+			(property "MPN" "BLM31PG121SN1L"
 				(at 0 -15.24 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -92,7 +215,7 @@
 					)
 				)
 			)
-			(property "LCSC Part" "C337884"
+			(property "LCSC Part" "C85841"
 				(at 0 -17.78 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -158,7 +281,7 @@
 					)
 				)
 			)
-			(symbol "BLM31KN121SN1L_0_1"
+			(symbol "BLM31PG121SN1L_0_1"
 				(arc
 					(start -4.29 0.02)
 					(mid -3.28 1.1)
@@ -338,7 +461,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "Aluminum Electrolytic Capacitors - SMD"
+			(property "Pkg Type" "SMD D10xL12.5"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -349,7 +472,7 @@
 					)
 				)
 			)
-			(property "Pkg Type" "SMD D10xL12.5"
+			(property "ki_keywords" "Aluminum Electrolytic Capacitors - SMD"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -904,7 +1027,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "TVS"
+			(property "Pkg Type" "SMD SMC (DO-214AB)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -915,7 +1038,7 @@
 					)
 				)
 			)
-			(property "Pkg Type" "SMD SMC (DO-214AB)"
+			(property "ki_keywords" "TVS"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1082,7 +1205,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "Schottky Barrier Diodes (SBD)"
+			(property "Pkg Type" "SMD SMC (DO-214AB)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1093,7 +1216,7 @@
 					)
 				)
 			)
-			(property "Pkg Type" "SMD SMC (DO-214AB)"
+			(property "ki_keywords" "Schottky Barrier Diodes (SBD)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1216,7 +1339,7 @@
 					)
 				)
 			)
-			(property "Description" "5x20mm cartridge fuse holder, PCB mount with cover, 250V 6.3A (BLX-A / XC-7)"
+			(property "Description" "PCB fuse holder with cover for 5x20 mm cartridge fuse, 6.3A 250V, THT (fuse fitted separately)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1227,7 +1350,7 @@
 					)
 				)
 			)
-			(property "Manufacturer" "xcfuse(旭程)"
+			(property "Manufacturer" "Xucheng Elec"
 				(at 0 -12.7 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1238,7 +1361,7 @@
 					)
 				)
 			)
-			(property "MPN" "5x20 BLX-A型 保险丝支架 XC-7"
+			(property "MPN" "5x20 BLX-A XC-7"
 				(at 0 -15.24 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1260,7 +1383,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "Fuse Holders"
+			(property "Pkg Type" "THT"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1271,7 +1394,7 @@
 					)
 				)
 			)
-			(property "Pkg Type" "TH fuse holder 5x20"
+			(property "ki_keywords" "Fuse Holders"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1645,17 +1768,6 @@
 		)
 		(uuid "3c264a19-219b-4c7f-a86b-a683c22a7903")
 	)
-	(text "48 VDC Input Conditioning"
-		(exclude_from_sim no)
-		(at 20 16 0)
-		(effects
-			(font
-				(size 5 5)
-			)
-			(justify left top)
-		)
-		(uuid "88946937-5f56-4df3-bb5a-158902954fdf")
-	)
 	(text "+48 V\nGND"
 		(exclude_from_sim no)
 		(at 22 75 0)
@@ -1667,7 +1779,7 @@
 		)
 		(uuid "0c1efe05-ef50-48a3-89fe-ddf1ff5d9e5a")
 	)
-	(text "Supply: 48 V DC nominal, the same bus that feeds the CANopen servo drives (DSY-400C: 24-70 V).\nWorking range 34 V to 58 V. Board load is about 30 W at full 5 V output (0.65 A at 48 V, 0.9 A at 34 V).\n\nF1  5x20 mm fuse in a PCB holder (XC-7, LCSC C3131). Fit a T2A time-lag CERAMIC fuse with a DC rating of\n    at least 60 V. Glass 5x20 fuses are usually rated for AC only: check the DC rating before fitting one.\n    (The ATO blade fuses of the 12 V board are 32 V parts and must not be used here.)\nD30 SS510C, 100 V 5 A Schottky in series: blocks a reversed supply. Drops about 0.5 V (0.4 W at 0.8 A).\n    A reversed supply puts 48 V across D30, or up to 48 V + the charge left on C90 if the board was\n    running seconds earlier. Keep that below 100 V: do not hot-swap the polarity.\nD31 SMCJ58A, 1.5 kW TVS: 58 V stand-off, 64.4 V minimum breakdown, 93.6 V clamp at 16 A. It keeps supply\n    surges below the 100 V rating of C90-C97, Q5/Q6 and U23. It is NOT a brake clamp: if the servo drives\n    regenerate into a supply that cannot absorb it and the bus rises above about 64 V, D31 conducts\n    continuously and F1 blows. Fit brake resistors on the drives if the bus can pump up.\nC90 100 uF 100 V electrolytic: bulk capacitance, and its ESR damps the ringing of the supply cable\n    inductance against the ceramic input capacitors of the buck when the supply is plugged in live.\nFB3 120 Ω at 100 MHz bead: keeps the buck switching noise off the 48 V bus and the servo drive noise\n    out of the buck. Carries the full input current (0.9 A max).\n\nThere is no motor current on this board. The servo drives are wired straight to the 48 V supply, so\nthe PGND / NT1 split of the RoboClaw board is gone: J1 pin 2 is board GND."
+	(text "Supply: 48 V DC nominal, the same bus that feeds the CANopen servo drives (DSY-400C: 24-70 V).\nWorking range 34 V to 58 V. Board load is about 30 W at full 5 V output (0.65 A at 48 V, 0.9 A at 34 V).\n\nF1  5x20 mm fuse in a PCB holder (XC-7, LCSC C3131). The fuse is fitted by hand, not by the assembler.\n    Fuse: Littelfuse 0477002.MXP (LCSC C187634): 2 A time-lag, ceramic, 400 VDC, breaks 1500 A at 400 VDC.\n    Any substitute must be ceramic with a DC rating of at least 60 V. Glass 5x20 fuses are usually AC only.\n    (The ATO blade fuses of the 12 V board are 32 V parts and must not be used here.)\nD30 SS510C, 100 V 5 A Schottky in series: blocks a reversed supply. Drops about 0.5 V (0.4 W at 0.8 A).\n    A reversed supply puts 48 V across D30, or up to 48 V + the charge left on C90 if the board was\n    running seconds earlier. Keep that below 100 V: do not hot-swap the polarity.\nD31 SMCJ58A, 1.5 kW TVS: 58 V stand-off, 64.4 V minimum breakdown, 93.6 V clamp at 16 A. It keeps supply\n    surges below the 100 V rating of C90-C97, Q5/Q6 and U23. It is NOT a brake clamp: if the servo drives\n    regenerate into a supply that cannot absorb it and the bus rises above about 64 V, D31 conducts\n    continuously and F1 blows. Fit brake resistors on the drives if the bus can pump up.\nC90 100 uF 100 V electrolytic: bulk capacitance, and its ESR damps the ringing of the supply cable\n    inductance against the ceramic input capacitors of the buck when the supply is plugged in live.\nFB3 120 Ω at 100 MHz bead: keeps the buck switching noise off the 48 V bus and the servo drive noise\n    out of the buck. Carries the full input current (0.9 A max).\n\nThere is no motor current on this board. The servo drives are wired straight to the 48 V supply, so\nthe PGND / NT1 split of the RoboClaw board is gone: J1 pin 2 is board GND."
 		(exclude_from_sim no)
 		(at 20.32 106.68 0)
 		(effects
@@ -1689,11 +1801,40 @@
 		)
 		(uuid "5ca16921-ecb3-4334-b219-9e6d4728e54d")
 	)
+	(text "48 VDC Input Conditioning"
+		(exclude_from_sim no)
+		(at 20 16 0)
+		(effects
+			(font
+				(size 5 5)
+			)
+			(justify left top)
+		)
+		(uuid "88946937-5f56-4df3-bb5a-158902954fdf")
+	)
 	(junction
-		(at 93.98 76.2)
+		(at 142.24 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f0204e18-8246-47e9-8f78-a1cafca400fe")
+		(uuid "42073d19-eb99-4225-b94e-8269a76358e3")
+	)
+	(junction
+		(at 93.98 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "626aa355-a7be-4ecf-a86f-e8f4ed888a3b")
+	)
+	(junction
+		(at 60.96 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a6bab610-9142-469d-89e7-2100ce9aa8e9")
+	)
+	(junction
+		(at 53.34 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b9f22129-31bc-4e6a-9fbc-774b32f89c51")
 	)
 	(junction
 		(at 109.22 76.2)
@@ -1708,128 +1849,16 @@
 		(uuid "eed7e181-1d76-435a-8d3a-1c6cd4b2d95c")
 	)
 	(junction
-		(at 142.24 76.2)
+		(at 93.98 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "42073d19-eb99-4225-b94e-8269a76358e3")
+		(uuid "f0204e18-8246-47e9-8f78-a1cafca400fe")
 	)
 	(junction
-		(at 53.34 88.9)
+		(at 73.66 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b9f22129-31bc-4e6a-9fbc-774b32f89c51")
-	)
-	(junction
-		(at 60.96 88.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a6bab610-9142-469d-89e7-2100ce9aa8e9")
-	)
-	(junction
-		(at 93.98 88.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "626aa355-a7be-4ecf-a86f-e8f4ed888a3b")
-	)
-	(wire
-		(pts
-			(xy 41.91 76.2) (xy 48.26 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c8f732a6-75c4-4aa4-9879-09dc65eb8648")
-	)
-	(wire
-		(pts
-			(xy 71.12 76.2) (xy 76.2 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "533f9a50-3f4c-40d0-b7a5-cad16bc5f09d")
-	)
-	(wire
-		(pts
-			(xy 86.36 76.2) (xy 93.98 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5a9f42e4-168a-4514-9722-7bd421b0ccb0")
-	)
-	(wire
-		(pts
-			(xy 93.98 76.2) (xy 109.22 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a00e5fea-639b-4b10-83b2-264963bde54a")
-	)
-	(wire
-		(pts
-			(xy 109.22 76.2) (xy 119.38 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2b764904-6c3d-45c1-8590-1685c3978e03")
-	)
-	(wire
-		(pts
-			(xy 93.98 76.2) (xy 93.98 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b53cb296-7a55-4dca-930b-c34449bb4294")
-	)
-	(wire
-		(pts
-			(xy 93.98 87.63) (xy 93.98 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "38d621f4-53f8-46eb-abcb-15d5693aecf9")
-	)
-	(wire
-		(pts
-			(xy 109.22 76.2) (xy 109.22 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "56707a56-860f-4f4a-9e1c-71c1822d22bc")
-	)
-	(wire
-		(pts
-			(xy 109.22 87.63) (xy 109.22 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ede29f85-5c49-45d1-a91a-dfc835c70a17")
-	)
-	(wire
-		(pts
-			(xy 129.54 76.2) (xy 134.62 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9f5053ef-8ea7-4fed-a52c-99c23cf2160f")
+		(uuid "04899dbb-0a4c-422c-b26c-b59011cfafa3")
 	)
 	(wire
 		(pts
@@ -1843,6 +1872,26 @@
 	)
 	(wire
 		(pts
+			(xy 109.22 76.2) (xy 119.38 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2b764904-6c3d-45c1-8590-1685c3978e03")
+	)
+	(wire
+		(pts
+			(xy 93.98 87.63) (xy 93.98 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38d621f4-53f8-46eb-abcb-15d5693aecf9")
+	)
+	(wire
+		(pts
 			(xy 142.24 76.2) (xy 149.86 76.2)
 		)
 		(stroke
@@ -1850,16 +1899,6 @@
 			(type default)
 		)
 		(uuid "46a10ca4-739d-41bb-b3f3-6b282b955867")
-	)
-	(wire
-		(pts
-			(xy 41.91 78.74) (xy 45.72 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a6994e38-6557-46b9-8622-6309195019b6")
 	)
 	(wire
 		(pts
@@ -1873,23 +1912,33 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 88.9) (xy 53.34 88.9)
+			(xy 71.12 76.2) (xy 76.2 76.2)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f735a500-d0f2-4fce-b173-4114dd7ac2b5")
+		(uuid "533f9a50-3f4c-40d0-b7a5-cad16bc5f09d")
 	)
 	(wire
 		(pts
-			(xy 53.34 88.9) (xy 60.96 88.9)
+			(xy 109.22 76.2) (xy 109.22 77.47)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7fd1c655-787f-4520-ba9e-29df60c7a1f4")
+		(uuid "56707a56-860f-4f4a-9e1c-71c1822d22bc")
+	)
+	(wire
+		(pts
+			(xy 86.36 76.2) (xy 93.98 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a9f42e4-168a-4514-9722-7bd421b0ccb0")
 	)
 	(wire
 		(pts
@@ -1903,6 +1952,36 @@
 	)
 	(wire
 		(pts
+			(xy 53.34 88.9) (xy 60.96 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7fd1c655-787f-4520-ba9e-29df60c7a1f4")
+	)
+	(wire
+		(pts
+			(xy 129.54 76.2) (xy 134.62 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f5053ef-8ea7-4fed-a52c-99c23cf2160f")
+	)
+	(wire
+		(pts
+			(xy 93.98 76.2) (xy 109.22 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a00e5fea-639b-4b10-83b2-264963bde54a")
+	)
+	(wire
+		(pts
 			(xy 93.98 88.9) (xy 109.22 88.9)
 		)
 		(stroke
@@ -1911,25 +1990,65 @@
 		)
 		(uuid "a652e144-4961-4c76-997c-7388699339ce")
 	)
-	(label "V_IN_RAW"
-		(at 42.5 76.2 0)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify left bottom)
+	(wire
+		(pts
+			(xy 41.91 78.74) (xy 45.72 78.74)
 		)
-		(uuid "d9ccbba1-1386-46e7-a0ed-53298db4eccc")
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6994e38-6557-46b9-8622-6309195019b6")
 	)
-	(label "V_IN_F"
-		(at 71.3 76.2 0)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify left bottom)
+	(wire
+		(pts
+			(xy 93.98 76.2) (xy 93.98 77.47)
 		)
-		(uuid "5a962515-a9f8-4d86-b2b4-54a19939f368")
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b53cb296-7a55-4dca-930b-c34449bb4294")
+	)
+	(wire
+		(pts
+			(xy 41.91 76.2) (xy 48.26 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c8f732a6-75c4-4aa4-9879-09dc65eb8648")
+	)
+	(wire
+		(pts
+			(xy 109.22 87.63) (xy 109.22 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ede29f85-5c49-45d1-a91a-dfc835c70a17")
+	)
+	(wire
+		(pts
+			(xy 45.72 88.9) (xy 53.34 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f735a500-d0f2-4fce-b173-4114dd7ac2b5")
+	)
+	(wire
+		(pts
+			(xy 73.66 76.2) (xy 73.66 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0f0c036-f660-460b-ad0b-9a64075ea0d8")
 	)
 	(label "V_IN_P"
 		(at 96 76.2 0)
@@ -1941,6 +2060,26 @@
 		)
 		(uuid "329c337f-5d8f-497d-b217-bc97f9f9389c")
 	)
+	(label "V_IN_F"
+		(at 71.3 76.2 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "5a962515-a9f8-4d86-b2b4-54a19939f368")
+	)
+	(label "V_IN_RAW"
+		(at 42.5 76.2 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "d9ccbba1-1386-46e7-a0ed-53298db4eccc")
+	)
 	(hierarchical_label "V_IN"
 		(shape output)
 		(at 149.86 76.2 0)
@@ -1951,6 +2090,84 @@
 			(justify left)
 		)
 		(uuid "e4494190-a543-4507-a9cf-47427af7aa49")
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 53.34 88.9 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0bdb01d2-214c-4412-9cb3-0d6a43098713")
+		(property "Reference" "#FLG5303"
+			(at 53.34 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 53.34 93.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 53.34 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d49a5e44-f731-47ac-a537-3267a9fdefcf")
+		)
+		(instances
+			(project "cm5-servo-dish-controller"
+				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
+					(reference "#FLG5303")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "MyParts:KF7620-7.62-2P")
@@ -1984,7 +2201,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:CONN-TH_P7.62_KF7620-7.62-2P"
+		(property "Footprint" "MyPartsIPC:KEFA_KF7620-7.62-2P"
 			(at 38.1 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -2097,7 +2314,7 @@
 				)
 			)
 		)
-		(property "Value" "T2A 5x20"
+		(property "Value" "2A"
 			(at 59.69 80.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2107,7 +2324,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:FUSE-TH_L22.6-W9.0"
+		(property "Footprint" "MyPartsIPC:Xucheng_XC-7_5x20"
 			(at 59.69 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -2129,7 +2346,7 @@
 				)
 			)
 		)
-		(property "Description" "5x20mm cartridge fuse holder, PCB mount with cover, 250V 6.3A (BLX-A / XC-7)"
+		(property "Description" "PCB fuse holder with cover for 5x20 mm cartridge fuse, 6.3A 250V, THT (fuse fitted separately)"
 			(at 59.69 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -2140,7 +2357,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "xcfuse(旭程)"
+		(property "Manufacturer" "Xucheng Elec"
 			(at 59.69 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -2151,7 +2368,7 @@
 				)
 			)
 		)
-		(property "MPN" "5x20 BLX-A型 保险丝支架 XC-7"
+		(property "MPN" "5x20 BLX-A XC-7"
 			(at 59.69 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -2173,7 +2390,51 @@
 				)
 			)
 		)
-		(property "Pkg Type" "TH fuse holder 5x20"
+		(property "Pkg Type" "THT"
+			(at 59.69 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Fuse" "Littelfuse 0477002.MXP (5x20 mm 2A)"
+			(at 59.69 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Voltage Rating" "400VDC"
+			(at 59.69 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Interrupting Rating" "1500A @ 400VDC"
+			(at 59.69 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Fuse Type" "Time-lag ceramic 5x20 mm (Littelfuse 477 series)"
 			(at 59.69 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -2323,6 +2584,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 60.96 88.9 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7f4dd2c3-e5e1-4aea-a98a-33156cf6b824")
+		(property "Reference" "#PWR5302"
+			(at 60.96 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 60.96 94.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 60.96 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 60.96 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ed80bc13-6773-4cf6-87d4-147819ac41be")
+		)
+		(instances
+			(project "cm5-servo-dish-controller"
+				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
+					(reference "#PWR5302")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "MyParts:SMCJ58A")
 		(at 93.98 82.55 270)
 		(unit 1)
@@ -2448,6 +2787,162 @@
 		)
 	)
 	(symbol
+		(lib_id "MyParts:BLM31PG121SN1L")
+		(at 124.46 76.2 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8da6db16-d21b-446f-b8b2-5060d938826a")
+		(property "Reference" "FB3"
+			(at 124.46 74.1 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "120Ω@100MHz"
+			(at 124.46 77.38 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "MyPartsIPC:INDC3216X130N"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "${MYPARTS_DATASHEETS}/BLM31PG121SN1L.pdf"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "-55℃~+125℃ 120Ω@100MHz 3.5A 20mΩ ±25% 1206 Ferrite Beads ROHS"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "muRata"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BLM31PG121SN1L"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C85841"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Tolerance" "±25%"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Current Rating" "6A"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DC Resistance" "9mΩ"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Pkg Type" "SMD 1206"
+			(at 124.46 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1b813af6-514a-47df-8e7b-8a82a3397f6d")
+		)
+		(pin "2"
+			(uuid "5ba87eaa-9e4e-4536-af6e-b6bbbc7a4b8d")
+		)
+		(instances
+			(project "cm5-servo-dish-controller"
+				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
+					(reference "FB3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "MyParts:EFVH100ADA101M10C0")
 		(at 109.22 82.55 270)
 		(unit 1)
@@ -2469,7 +2964,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF 100V"
+		(property "Value" "100uF"
 			(at 111.61 83.55 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2480,7 +2975,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MyParts:CAP-SMD_BD10.0-L10.3-W10.3-FD"
+		(property "Footprint" "MyPartsIPC:CAPAE1030X1250N"
 			(at 109.22 82.55 90)
 			(hide yes)
 			(show_name no)
@@ -2557,6 +3052,16 @@
 				)
 			)
 		)
+		(property "Voltage Rating" "100V"
+			(at 113.792 85.852 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "68b8c459-111d-4a2c-86b7-b3d6bfc6f2f4")
 		)
@@ -2573,18 +3078,19 @@
 		)
 	)
 	(symbol
-		(lib_id "MyParts:BLM31KN121SN1L")
-		(at 124.46 76.2 0)
+		(lib_id "power:PWR_FLAG")
+		(at 142.24 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8da6db16-d21b-446f-b8b2-5060d938826a")
-		(property "Reference" "FB3"
-			(at 124.46 74.1 0)
+		(uuid "aa8f6b3a-db5b-4135-91d9-f978c7e92070")
+		(property "Reference" "#FLG5301"
+			(at 142.24 82.55 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2593,8 +3099,8 @@
 				)
 			)
 		)
-		(property "Value" "120Ω@100MHz"
-			(at 124.46 77.38 0)
+		(property "Value" "PWR_FLAG"
+			(at 142.24 71.2 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2603,8 +3109,8 @@
 				)
 			)
 		)
-		(property "Footprint" "MyPartsIPC:INDC3216X130N"
-			(at 124.46 76.2 0)
+		(property "Footprint" ""
+			(at 142.24 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2614,8 +3120,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "${MYPARTS_DATASHEETS}/BLM31KN121SN1L.pdf"
-			(at 124.46 76.2 0)
+		(property "Datasheet" ""
+			(at 142.24 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2625,85 +3131,8 @@
 				)
 			)
 		)
-		(property "Description" "-55℃~+125℃ 1 120Ω@100MHz 6A 9mΩ ±25% 1206 Ferrite Beads ROHS"
-			(at 124.46 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "muRata"
-			(at 124.46 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "BLM31KN121SN1L"
-			(at 124.46 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C337884"
-			(at 124.46 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Tolerance" "±25%"
-			(at 124.46 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Current Rating" "6A"
-			(at 124.46 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DC Resistance" "9mΩ"
-			(at 124.46 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Pkg Type" "SMD 1206"
-			(at 124.46 76.2 0)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 142.24 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2714,15 +3143,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "1b813af6-514a-47df-8e7b-8a82a3397f6d")
-		)
-		(pin "2"
-			(uuid "5ba87eaa-9e4e-4536-af6e-b6bbbc7a4b8d")
+			(uuid "f3d4d547-459b-4306-a1b8-a1f8b98babcb")
 		)
 		(instances
 			(project "cm5-servo-dish-controller"
 				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "FB3")
+					(reference "#FLG5301")
 					(unit 1)
 				)
 			)
@@ -2761,7 +3187,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:TESTPOINT-SMD_L3.0-W2.0"
+		(property "Footprint" "MyPartsIPC:Ronghe_RH-5016"
 			(at 134.62 72.39 90)
 			(hide yes)
 			(show_name no)
@@ -2851,239 +3277,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 142.24 76.2 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "aa8f6b3a-db5b-4135-91d9-f978c7e92070")
-		(property "Reference" "#FLG5301"
-			(at 142.24 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 142.24 71.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1 1)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 142.24 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 142.24 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 142.24 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f3d4d547-459b-4306-a1b8-a1f8b98babcb")
-		)
-		(instances
-			(project "cm5-servo-dish-controller"
-				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#FLG5301")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 60.96 88.9 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7f4dd2c3-e5e1-4aea-a98a-33156cf6b824")
-		(property "Reference" "#PWR5302"
-			(at 60.96 95.25 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 60.96 94.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1 1)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 60.96 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 60.96 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \\\"GND\\\" , ground"
-			(at 60.96 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ed80bc13-6773-4cf6-87d4-147819ac41be")
-		)
-		(instances
-			(project "cm5-servo-dish-controller"
-				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#PWR5302")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 53.34 88.9 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0bdb01d2-214c-4412-9cb3-0d6a43098713")
-		(property "Reference" "#FLG5303"
-			(at 53.34 95.25 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 53.34 93.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1 1)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 53.34 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 53.34 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 53.34 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d49a5e44-f731-47ac-a537-3267a9fdefcf")
-		)
-		(instances
-			(project "cm5-servo-dish-controller"
-				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
-					(reference "#FLG5303")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "MyParts:RH-5016")
 		(at 45.72 92.71 270)
 		(unit 1)
@@ -3116,7 +3309,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MyParts:TESTPOINT-SMD_L3.0-W2.0"
+		(property "Footprint" "MyPartsIPC:Ronghe_RH-5016"
 			(at 45.72 92.71 90)
 			(hide yes)
 			(show_name no)
@@ -3205,5 +3398,82 @@
 			)
 		)
 	)
-	(embedded_fonts no)
+	(symbol
+		(lib_id "Connector:TestPoint_Small")
+		(at 73.66 78.74 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "8cfee698-5fdf-46d4-9cb5-6d31574f6a02")
+		(property "Reference" "TP68"
+			(at 72.644 80.264 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TestPoint_Small"
+			(at 73.66 80.648 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "MyParts:TestPoint_Pad_D0.8mm"
+			(at 73.66 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 73.66 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 73.66 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "943b0760-c3a7-4ebb-b1db-6b6a7be0f779")
+		)
+		(instances
+			(project "cm5-servo-dish-controller"
+				(path "/c1285fbe-5f56-49a8-9041-410713cbe619/f33f7058-fe78-4de3-afa6-be46a5f18f95"
+					(reference "TP68")
+					(unit 1)
+				)
+			)
+		)
+	)
 )

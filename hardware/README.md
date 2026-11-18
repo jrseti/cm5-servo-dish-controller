@@ -61,16 +61,20 @@ Each sheet carries notes explaining its part values.
 ### Power
 
 - **Input:** J1 screw terminal, F1 (5×20 mm fuse, T2A), D30 series Schottky for reverse
-  polarity, D31 SMCJ58A surge clamp, C90 100 µF bulk, FB3 bead.
+  polarity, D31 SMCJ58A surge clamp, C90 100 µF bulk, FB3 bead. TP68 is a bare
+  pad on `V_IN_F` between F1 and D30, for checking the fuse.
 - **5 V:** LM5116 synchronous buck at 259 kHz with a 10 µH inductor. Current limit
   7.3 A peak, input UVLO at 33 V. SW1 shuts the converter down (5 V rail only; the
-  48 V side stays live).
+  48 V side stays live). Test points TP55/TP63 (CS) and TP64/TP65 (GND) are for a
+  four-wire measurement of the 15 mΩ sense resistor R112: place all four at its pads.
 - **3.3 V:** the CM5 supplies `3V3_CM5` as before. The STM32 has its own regulator
   (`3V3_MCU`), so it keeps running while the CM5 is off or rebooting.
 
 ### STM32 and CAN
 
-- **CAN:** one CANopen bus, galvanically isolated (ISO1042 + B0505S isolated supply).
+- **CAN:** one CANopen bus, galvanically isolated (CA-IS3052G + B0505S isolated supply).
+  Classic CAN up to 1 Mbit/s; the transceiver does not support CAN FD, which CANopen
+  does not use.
   The RJ45 uses the CiA 303-1 pinout, the same as the servo drives' CN1/CN2 ports:
   pin 1 CAN_H, pin 2 CAN_L, pin 3 CAN_GND. SW2 switches in a 120 Ω split termination.
 - **UART to the CM5:** USART1 through two buffers powered from `3V3_CM5`, so the STM32
@@ -84,7 +88,7 @@ STM32 pin use:
 | Pin | Function | Connects to |
 |---|---|---|
 | PA9 / PA10 | USART1 TX / RX | CM5 GPIO13 / GPIO12 |
-| PA12 / PA11 | FDCAN1 TX / RX | ISO1042 |
+| PA12 / PA11 | FDCAN1 TX / RX | CA-IS3052G |
 | PA13 / PA14 / PB3 | SWDIO / SWCLK / SWO | STDC14 |
 | PA2 / PA3 | USART2 (or LPUART1) TX / RX | STDC14 virtual COM port |
 | PC6 / PC7 | CANopen RUN (green) / ERR (red) LED | LED5 / LED6 |
@@ -110,8 +114,10 @@ Check these before layout or ordering:
    can pump the 48 V bus above that when braking, D31 overheats and F1 blows. Fit
    brake resistors on the drives, or choose a higher-voltage TVS and re-check the
    100 V ratings.
-4. **Fuse.** F1 must be a ceramic 5×20 mm fuse with a DC rating of 60 V or more.
-   Ordinary glass fuses are rated for AC only.
+4. **Fuse.** F1 is the fuse holder; the assembler does not fit the fuse. Fit a
+   Littelfuse 0477002.MXP (2 A time-lag, ceramic, 400 VDC, LCSC C187634) by hand.
+   It is named in F1's `Fuse` field. A substitute must be ceramic with a DC rating
+   of 60 V or more: ordinary glass fuses are rated for AC only.
 5. **CM5 module connectors.** J17/J18 are still the Hirose DF40C-100DS-0.4V(51)
    parts from the CM4 board. The CM5 datasheet names Amphenol 10164227-1001A1RLF
    as the mating part, tested to the CM5's higher current.
@@ -119,20 +125,46 @@ Check these before layout or ordering:
    board and is not proven on a CM5.
 7. **Console UART notes** on the connectors sheet (how to enable the Linux console
    on GPIO14/15 on a CM5) need checking against current Raspberry Pi documentation.
-8. **Part stock.** A public JLCPCB parts index (jlcsearch.tscircuit.com) listed
-   stock on 2026-11-16 for every new part except the inductor (C305223) and the
-   USB 3.0 connector (C429838), which it did not list. Check all of them on
-   JLCPCB itself before ordering.
+8. **Part stock.** All fitted parts were checked against live JLCPCB stock on
+   2026-11-17. The three that were out of stock were replaced: FB3 (now
+   BLM31PG121SN1L), U25 (now CA-IS3052G, same pinout and footprint as the ISO1042)
+   and USB1 (now Molex 48406-0003). Still low: U18 TPS70933DBVR (10), U20
+   LTC4311ISC6 (15), U7 LM75BIMX-3 (54), U24 STM32G474RET6 (72), J19
+   FTSH-107-01-L-DV-K-A (173). Recheck stock before ordering.
+   U23 LM5116MHX/NOPB is listed by JLCPCB as Standard-assembly only, which moves
+   the whole order from Economic to Standard assembly.
+   The USB1 footprint comes from EasyEDA; check it against the Molex drawing
+   before layout.
 9. **Net classes** in the project file were updated for the new net names, but the
    track widths and clearances are still the 12 V board's. Review them for 48 V.
+   The Ethernet and USB pairs also carry net class flags on the CM5 sheet
+   (`ETH_100_OHM`, `USB_90_OHM`), so the target impedance shows on the drawing.
 
 ## Libraries
 
 - **Symbols and footprints:** the `MyParts` library in the `parts/` submodule
   ([jrseti/parts](https://github.com/jrseti/parts)), referenced from the project
   library tables as `${KIPRJMOD}/../../parts/...`.
-- **IPC-named footprints:** `kicad/myparts-ipc.pretty` (`MyPartsIPC`), copied from
-  the reference project.
+- **IPC-named footprints:** every part on the board uses a footprint from
+  `kicad/myparts-ipc.pretty` (`MyPartsIPC`), except the bare test pads
+  (`MyParts:TestPoint_Pad_D0.8mm`) and the mounting holes. The schematic's
+  Footprint fields point there; the `MyParts` library symbols keep their original
+  footprints, so other projects are unaffected.
+  - Standard packages have IPC-7351B names. Most come from the reference project.
+    The ones added here are named from datasheet maximum heights:
+    `SOP65P640X120-21N` (LM5116), `QFP50P1200X1200X160-64N` (STM32),
+    `SON127P615X515X120-9N` (BSC098N10NS5), `SOIC127P1150X280-8N` (CA-IS3052G),
+    `SOT95P240X110-3N` (PESD2CANFD27V), `CAPAE1030X1250N` (C90),
+    `INDM135125X650N` (L3), `RESC2012X60N`, `OSCCC320X250X80-4N` (X2) and
+    `SOP127P835X250-4N` (SW2).
+  - Parts with no IPC-7351 package family (connectors, headers, modules, switches,
+    the CAN choke, the battery, the RH-5016 test points) are named manufacturer_part,
+    e.g. `Molex_48406-0003`, `HanRun_HR911130A`, `PinHeader_2x12_P2.54mm_Vertical`.
+  - D30/D31 now use the reference project's SMC pattern `DIOM7959X262N`
+    (2.7 × 3.3 mm pads instead of 3.03 × 3.82 mm).
+  - `Samtec_FTSH-107-01-L-DV-K-A` (J19) numbers its pads `01`–`14` to match the
+    STDC14 symbol. The `MyParts` footprint numbers them `1`–`14`, which left
+    J19 pins 1–9 without pads.
 - **3D models:** set the KiCad path variable `MYPARTS` to `<clone>/parts` and
   `MYPARTS_DATASHEETS` to `<clone>/parts/datasheets`
   (**Preferences → Configure Paths**).
@@ -155,7 +187,13 @@ This design added these symbols to `parts/myparts.kicad_sym`, with footprints an
 | `BAV21WS_C2903901` | 250 V switching diode | C2903901 |
 | `XC-7_5x20_FuseHolder` | 5×20 mm fuse holder | C3131 |
 | `ACT45B-510-2P-TL003` | CAN common-mode choke | C76584 |
-| `GSB311231HR` | Stacked USB 3.0 Type-A connector | C429838 |
+| `484060003` | Molex stacked USB 3.0 Type-A connector | C565298 |
+| `CA-IS3052G` | Isolated CAN transceiver (the ISO1042 symbol, re-labelled) | C528764 |
+| `BLM31PG121SN1L` | 120 Ω 3.5 A ferrite bead | C85841 |
+
+It also renamed the footprint `SW-SMD_DSHP02TSGER` to `SOP127P835X250-4N` in
+`parts/myparts.pretty` (used by the `DSHP02TSGER` symbol). Other projects that
+share the library still reference the old name.
 
 These changes are in the submodule's working tree and are not committed. Commit
 and push them in `parts/` first, then commit the new submodule pointer here.
